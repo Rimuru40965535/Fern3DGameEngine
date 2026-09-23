@@ -149,7 +149,7 @@
   <ItemGroup>
     <ClInclude Include="Fern3DGameEngine.h" />
     <ClInclude Include="FernPack\basic_funcion\Color.h" />
-    <ClInclude Include="MathUtils.h" />
+    <ClInclude Include="FernPack\basic_funcion\MathUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="01-Generate_Blank_Window.cpp" />
