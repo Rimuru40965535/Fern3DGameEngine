@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Fern3DGameEngine_Rebuild.vcxproj" />
+  <Project Path="Fern3DGameEngine_Rebuild.vcxproj" Id="e1fdc1c4-f9dc-4f0e-a9e3-46623b091e4e" />
 </Solution>

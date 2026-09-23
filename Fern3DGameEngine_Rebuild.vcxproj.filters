@@ -21,12 +21,18 @@
     <None Include="HOW_TO_RUN.md">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="LogBuff.md">
+    <None Include="API速查.md">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fern3DGameEngine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FernPack\basic_funcion\Color.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtils.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

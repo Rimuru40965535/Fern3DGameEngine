@@ -140,11 +140,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="HOW_TO_RUN.md" />
-    <None Include="LogBuff.md" />
+    <None Include="API速查.md">
+      <SubType>
+      </SubType>
+    </None>
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fern3DGameEngine.h" />
+    <ClInclude Include="FernPack\basic_funcion\Color.h" />
+    <ClInclude Include="MathUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="01-Generate_Blank_Window.cpp" />

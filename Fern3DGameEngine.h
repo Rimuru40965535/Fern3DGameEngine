@@ -2,19 +2,19 @@
 * @file Fern3DGameEngine.h
 * @brief A simple 3D game engine for C++	
 * 
-* @author åŠäººé©¬åº§betaæ˜Ÿ
+* @author °ëÈËÂí×ùbetaĞÇ
 * 
 */
 
 #pragma once
 
 /***
-* @brief æ­¤å‘½åç©ºé—´ç”¨äºå°è£…Fern3DGameEngineçš„æ‰€æœ‰åŠŸèƒ½å’Œç±»ã€‚æˆ‘è¯´è²ä¼¦æ˜¯åä¸ƒå²çš„å¦ˆå¦ˆæœ‰æ²¡æœ‰æ‡‚çš„ã€‚
+* @brief ´ËÃüÃû¿Õ¼äÓÃÓÚ·â×°Fern3DGameEngineµÄËùÓĞ¹¦ÄÜºÍÀà¡£ÎÒËµ·ÆÂ×ÊÇÊ®ÆßËêµÄÂèÂèÓĞÃ»ÓĞ¶®µÄ¡£
 * 
 */
 namespace Fern{}
 
-///< std dependency || æ ‡å‡†åº“ä¾èµ–		||ä¾èµ–æ–‡ä»¶
+///< std dependency || ±ê×¼¿âÒÀÀµ		||ÒÀÀµÎÄ¼ş
 #include <iostream>						
 #include <vector>
 #include <fstream>
@@ -30,11 +30,13 @@ namespace Fern{}
 #ifdef _WIN32
 #include <Windows.h>
 #endif
-#include <easyx.h>
 #include <cstdint>
 
 
-
+#include <easyx.h>
 
 
 ///#include "FernPack/basic_function/LogBuff.h"
+
+#include "FernPack/basic_funcion/MathUtils.h"
+#include "FernPack/basic_funcion/Color.h"
