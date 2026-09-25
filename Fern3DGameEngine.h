@@ -40,3 +40,5 @@ namespace Fern{}
 
 #include "FernPack/basic_funcion/MathUtils.h"
 #include "FernPack/basic_funcion/Color.h"
+
+#include "FernPack/math/Vector3D.h"

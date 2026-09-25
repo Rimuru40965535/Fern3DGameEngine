@@ -1,4 +1,4 @@
-/***
+﻿/***
 * @file /FernPack/basic_funcion/MathUtils.h
 * 
 * @brief 数学运算基础库
@@ -101,24 +101,6 @@ namespace Fern::Math {
 		}
 	}
 
-
-    /**
-        * @brief 余弦函数，适配全实数。
-        * @details
-        * 函数只进行角度的规约。具体计算依然需要double CosineSmall(double, int)
-        * @param double x
-        * @param int terms = 6 迭代计算项数，默认6项精度已经足够。
-        * @return double 参数x的余弦值
-        */
-    inline double Cosine(double x, int terms = 6) {
-        // 1. 角度归约
-        if (x < 0) x = -x;              // cos(-x) = cos(x)
-        while (x > TAU) { x -= TAU; }   // cos(x + 2π) = cos(x)
-        if (x > PI) { x = TAU - x; }   // cos(2π - x) = cos(x)
-        if (x > PIHALF) { return -CosineSmall(PI - x, terms); }// cos(π - x) = -cos(x)
-        return CosineSmall(x, terms);
-    }
-
     /**
     * @brief 余弦函数，适配小角度。
     * @details
@@ -148,6 +130,25 @@ namespace Fern::Math {
 
         return result;
     }
+
+    /**
+        * @brief 余弦函数，适配全实数。
+        * @details
+        * 函数只进行角度的规约。具体计算依然需要double CosineSmall(double, int)
+        * @param double x
+        * @param int terms = 6 迭代计算项数，默认6项精度已经足够。
+        * @return double 参数x的余弦值
+        */
+    inline double Cosine(double x, int terms = 6) {
+        // 1. 角度归约
+        if (x < 0) x = -x;              // cos(-x) = cos(x)
+        while (x > TAU) { x -= TAU; }   // cos(x + 2π) = cos(x)
+        if (x > PI) { x = TAU - x; }   // cos(2π - x) = cos(x)
+        if (x > PIHALF) { return -CosineSmall(PI - x, terms); }// cos(π - x) = -cos(x)
+        return CosineSmall(x, terms);
+    }
+
+    
 
     /**
     * @brief 正弦函数，适配全实数。
@@ -193,6 +194,7 @@ namespace Fern::Math {
         double result = 0.0;
         double term = x;      // n=0 项
         double x2 = x * x;
+        
 
         for (int n = 0; n < terms; n++) {
             if (n == 0) {
