@@ -161,6 +161,8 @@ struct Fern::Color{
 ---
 ## Vector3D.h
 
+这个文件定义三维向量。包括点和法向量。
+
 ### Vector3D类的属性如下：
 ```
 typedef class Vector3D {
@@ -328,5 +330,128 @@ typedef class Vector3D {
 ---
 ---
 
+## Matrix4x4.h
 
+这个文件提供矩阵的定义以及运算法则。
+
+### Matrix4x4 类的属性如下
+```
+class Matrix4x4 {
+	public:
+		double values[4][4];		///values[行号][列标]
+    };
+```
+需要注意的是，矩阵采用行主序存储。  
+也就是说，如果写在纸上的话，这个矩阵会是这样的形式：
+```
+values[0][0]    values[0][1]    values[0][2]    values[0][3]
+values[1][0]    values[1][1]    values[1][2]    values[1][3]
+values[2][0]    values[2][1]    values[2][2]    values[2][3]
+values[3][0]    values[3][1]    values[3][2]    values[3][3]
+```
+
+### Matrix4x4 类的方法如下
+
+`Matrix4x4()`
+-
+重载的构造方法。
+- 参数
+    - (int = 1) 矩阵生成初始化填充样板
+| 宏 | 值 | 矩阵填充效果 |
+| :---: | :---: | :----: |
+| `MATRIX_INIT_WITH_UNIT_MATRIX` | 1 | 矩阵初始化为四维单位矩阵 | 
+| `MATRIX_INIT_WITH_ALL_0`       | 2 | 矩阵初始化为全0矩阵      |
+| `MATRIX_INIT_WITH_ALL_1`       | 3 | 矩阵初始化为全1矩阵      |
+| `MATRIX_INIT_WITH_TEST`        | 4 | 矩阵初始化为测试矩阵     |
+
+- 参数
+    - double[4][4] 按二维数组填充矩阵，生成的矩阵的值与数组中的一致。
+
+- 参数
+    - Matrix4x4 按矩阵填充矩阵，生成的矩阵的值与矩阵中的一致。
+
+- 注
+    - 单位测试矩阵的填充如下
+| 0 | 1 | 2 | 3 |
+|:-:|:-:|:-:|:-:|
+| 4 | 5 | 6 | 7 |
+| 8 | 9 | 10| 11|
+| 12| 13| 14| 15|
+
+`=`
+-
+重载的赋值函数。将一个矩阵的值赋值给另一个矩阵。
+- 参数
+    - Matrix4x4 
+- 返回值
+    - `*this`
+
+`+` `+=`
+-
+矩阵加法。区别仅限有没有赋值操作。成员函数。
+- 参数
+    - Matrix4x4 加矩阵
+- 返回值
+    - Matrix4x4 和矩阵
+
+
+`-` `-=`
+-
+矩阵减法。区别仅限有没有赋值操作。成员函数。
+- 参数
+    - Matrix4x4 减矩阵
+- 返回值
+    - Matrix4x4 差矩阵
+
+`*` `*=`
+-
+重载的矩阵左乘。区别仅限有没有赋值操作。成员函数。
+- 参数
+    - Matrix4x4 左矩阵
+- 返回值
+    - 积矩阵
+
+`*`
+-
+重载的向量左乘矩阵。成员函数。
+- 参数
+    - Vector3D 待变换向量
+- 返回值
+    - 变换结果
+
+
+`^` 
+-
+矩阵右乘。区别仅限有没有赋值操作。成员函数。
+- 参数
+    - Matrix4x4 右矩阵
+- 返回值
+    - 积矩阵
+
+### 可能会在未来的版本废弃的函数
+ 
+`friend std::ostream& operator<<()`
+-
+重载的流式输出友元函数。
+
+`std::string toString()`
+-
+获取字符串形式矩阵。曾用于调试矩阵运算，输出运算步骤与结果。
+
+### 预定义的工厂方法
+
+以下均为 `Matrix4x4` 类的成员函数：
+| 函数名 | 函数参数列表 | 函数返回值类型 | 函数作用 |
+| :----: | :----------: | :------------: | :------: |
+| `Identity()` | | `Matrix4x4` | 生成一个单位矩阵 |
+| `Translation()` | `double x, double y, double z` | `Matrix4x4` | 生成按指定分量平移矩阵 |
+| `Translation()` | `Vector3D` | `Matrix4x4` | 生成按指定向量平移矩阵 |
+| `Scale()` | `double x, double y, double z` | `Matrix4x4` | 生成按指定三轴缩放比例缩放矩阵 |
+| `Scale()` | `Vector3D` | `Matrix4x4` | 生成按指定向量三分量三轴缩放比例缩放矩阵 |
+| `RotationX()` | `double angle` | `Matrix4x4` | 生成绕x轴正向逆时针转动`angle`弧度的矩阵，旋转基点为原点 |
+| `RotationY()` | `double angle` | `Matrix4x4` | 生成绕y轴正向逆时针转动`angle`弧度的矩阵，旋转基点为原点 |
+| `RotationZ()` | `double angle` | `Matrix4x4` | 生成绕z轴正向逆时针转动`angle`弧度的矩阵，旋转基点为原点 |
+| `RotationAroundOriginX()` | `double angle, Vector3D origin` | `Matrix4x4` | 生成绕x轴正向逆时针转动`angle`弧度的矩阵，旋转基点为`origin` |
+| `RotationAroundOriginY()` | `double angle, Vector3D origin` | `Matrix4x4` | 生成绕y轴正向逆时针转动`angle`弧度的矩阵，旋转基点为`origin` |
+| `RotationAroundOriginZ()` | `double angle, Vector3D origin` | `Matrix4x4` | 生成绕z轴正向逆时针转动`angle`弧度的矩阵，旋转基点为`origin` |
 
