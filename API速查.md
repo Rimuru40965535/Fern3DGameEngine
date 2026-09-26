@@ -455,3 +455,85 @@ values[3][0]    values[3][1]    values[3][2]    values[3][3]
 | `RotationAroundOriginY()` | `double angle, Vector3D origin` | `Matrix4x4` | 生成绕y轴正向逆时针转动`angle`弧度的矩阵，旋转基点为`origin` |
 | `RotationAroundOriginZ()` | `double angle, Vector3D origin` | `Matrix4x4` | 生成绕z轴正向逆时针转动`angle`弧度的矩阵，旋转基点为`origin` |
 
+
+---
+--- 
+
+## `Window.h`
+
+文件存储一个管理窗口行为的类。
+这个类是程序与EazyX通讯的桥梁。
+
+### Window类的属性如下
+```
+ class Window {
+    public:
+        int width;             ///<窗口宽度
+        int height;            ///<窗口高度
+        std::string title;     ///<窗口标题
+        bool isOpen;           ///<是否打开
+
+        HWND windowHwnd;       ///<窗口句柄
+
+        Matrix4x4 windowMatrix; ///<视窗变换矩阵
+    };
+```
+
+### Window类的方法如下
+
+`Window()`
+-
+构造方法。
+指定宽高，自动创建窗口，初始化视窗变换矩阵，同时自动开启批量绘图功能。
+- 参数
+    - int w 窗口宽度
+    - int h 窗口高度
+    - std::string& t 窗口标题
+    - int flag EasyX窗口创建标志位  
+    
+***没有拷贝构造函数以及赋值函数。***
+
+`Clear()`
+-
+清除屏幕，填充背景色。
+- 参数
+    - 无
+- 返回值
+    - 无
+
+`Present()`
+-
+交换缓冲区，显示绘图内容。
+- 参数
+    - 无
+- 返回值
+    - 无
+    
+`PullEvents()`
+-
+处理窗口消息函数。  
+***空实现***  
+
+`ShouldClose()`
+-
+检测窗口是否应该被关闭。
+- 参数
+    - 无
+- 返回值
+    - `!isOpen`
+
+`Width()` `Height()`
+-
+获取窗口宽度、高度。
+- 参数
+    - 无
+- 返回值
+    - int 窗口宽度（或高度）
+
+---
+---
+
+
+
+
+
