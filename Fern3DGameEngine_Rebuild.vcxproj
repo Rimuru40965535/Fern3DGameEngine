@@ -153,7 +153,7 @@
     <ClInclude Include="FernPack\basic_funcion\MathUtils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="02.Window_class_append.cpp" />
+    <ClCompile Include="03-Rainbow_Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

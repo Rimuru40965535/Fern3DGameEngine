@@ -116,6 +116,15 @@ namespace Fern {
         // 提供一个方法让 EasyX 的绘图函数可以访问窗口句柄（如果需要）
         // 对于我们的软渲染器，我们不需要直接暴露 HWND
 
+        int DrawPixel(int x, int y, Color c) {
+            if (x < 0) { return -1; }
+            if (x >= width) { return -1; }
+            if (y < 0) { return -2; }
+            if (y >= height) { return -2; }
+
+            putpixel(x, y, c.ToEasyXColor());
+            return 1;
+        }
     };
 
     
