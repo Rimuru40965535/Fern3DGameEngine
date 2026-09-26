@@ -116,7 +116,15 @@ namespace Fern {
         // 提供一个方法让 EasyX 的绘图函数可以访问窗口句柄（如果需要）
         // 对于我们的软渲染器，我们不需要直接暴露 HWND
 
-        int DrawPixel(int x, int y, Color c) {
+
+        /// <summary>
+        /// 逐像素控制
+        /// </summary>
+        /// <param name="x">绘制坐标</param>
+        /// <param name="y">绘制坐标</param>
+        /// <param name="c">绘制颜色</param>
+        /// <returns></returns>
+        int DrawPixel(int x, int y, Color c)const {
             if (x < 0) { return -1; }
             if (x >= width) { return -1; }
             if (y < 0) { return -2; }

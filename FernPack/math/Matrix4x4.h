@@ -1,12 +1,12 @@
-/**
+ï»¿/**
  * @file Fern3DEngine/FernMath/Matrix4x4.h
  *
- * @brief »ù´¡ÊıÑ§Æë´Î¾ØÕóÄ£¿é
+ * @brief åŸºç¡€æ•°å­¦é½æ¬¡çŸ©é˜µæ¨¡å—
  * @details
- * ¸ÃÄ£¿éÀûÓÃÆë´Î¾ØÕóÖ´ĞĞ¶ÔÏòÁ¿µÄ±ä»»¡£
+ * è¯¥æ¨¡å—åˆ©ç”¨é½æ¬¡çŸ©é˜µæ‰§è¡Œå¯¹å‘é‡çš„å˜æ¢ã€‚
  *
  *
- * @author °ëÈËÂí×ùbetaĞÇ
+ * @author åŠäººé©¬åº§betaæ˜Ÿ
  * @copyright Copyright (c) 2026 Rimuru Central Institute of Computer Science. All rights reserved.
  * @date 2026/7/22
  */
@@ -21,7 +21,7 @@
 namespace Fern {
 	class Matrix4x4 {
 	public:
-		double values[4][4];		///values[ĞĞºÅ][ÁĞ±ê]
+		double values[4][4];		///values[è¡Œå·][åˆ—æ ‡]
 
 	public:
 		Matrix4x4(int matrixInitSettings = MATRIX_INIT_WITH_UNIT_MATRIX) {
@@ -89,10 +89,10 @@ namespace Fern {
 		}
 		
 		/**
-		* @brief ×ó³Ë
+		* @brief å·¦ä¹˜
 		* @details
-		* ÖØÔØ Matrix4x4 operator*(const Matrix4x4 A)·½·¨Îª*this×ó³ËA
-		* @param const:Matrix4x4& A Ëã·û×ó¾ØÕó
+		* é‡è½½ Matrix4x4 operator*(const Matrix4x4 A)æ–¹æ³•ä¸º*thiså·¦ä¹˜A
+		* @param const:Matrix4x4& A ç®—ç¬¦å·¦çŸ©é˜µ
 		* @return Matrix4x4
 		*/
 		Matrix4x4 operator*(const Matrix4x4& A)const {
@@ -102,7 +102,7 @@ namespace Fern {
 					for (int _ = 0;_ <= 3;_++) {
 						//std::ostringstream oss;
 						result.values[row][col] += A.values[row][_] * this->values[_][col];
-						//oss << "¼ÆËã¹ı³Ì £¨" << row << "," << col << "," << _ << "):\n" << result.toString();
+						//oss << "è®¡ç®—è¿‡ç¨‹ ï¼ˆ" << row << "," << col << "," << _ << "):\n" << result.toString();
 						//LOG_APPEND(oss.str());
 					}
 				}
@@ -111,10 +111,10 @@ namespace Fern {
 		}
 
 		/**
-		* @brief ×ó³Ë²¢¸³Öµ
+		* @brief å·¦ä¹˜å¹¶èµ‹å€¼
 		* @details
-		* ÖØÔØ Matrix4x4 operator*=(const Matrix4x4 A)·½·¨Îª*this×ó³ËA²¢ÇÒ´æ´¢ÔÚ*thisÖĞ
-		* @param const:Matrix4x4& A Ëã·û×ó¾ØÕó
+		* é‡è½½ Matrix4x4 operator*=(const Matrix4x4 A)æ–¹æ³•ä¸º*thiså·¦ä¹˜Aå¹¶ä¸”å­˜å‚¨åœ¨*thisä¸­
+		* @param const:Matrix4x4& A ç®—ç¬¦å·¦çŸ©é˜µ
 		* @return Matrix4x4 *this
 		*/
 		Matrix4x4 operator*=(const Matrix4x4& A) {
@@ -124,7 +124,7 @@ namespace Fern {
 					for (int _ = 0;_ <= 3;_++) {
 						//std::ostringstream oss;
 						result.values[row][col] += A.values[row][_] * this->values[_][col];
-						//oss << "¼ÆËã¹ı³Ì £¨" << row << "," << col << "," << _ << "):\n" << result.toString();
+						//oss << "è®¡ç®—è¿‡ç¨‹ ï¼ˆ" << row << "," << col << "," << _ << "):\n" << result.toString();
 						//LOG_APPEND(oss.str());
 					}
 				}
@@ -136,21 +136,21 @@ namespace Fern {
 		}
 
 		/**
-		* @brief ÓÒ³Ë
+		* @brief å³ä¹˜
 		* @details
-		* ÖØÔØ Matrix4x4 operator*(const Matrix4x4 A)·½·¨Îª*thisÓÒ³ËA¡£
-		* ÊıÑ§ÔËËãÒÑ¾­±»ºËÑéÕıÈ·
-		* @param const:Matrix4x4& A Ëã·ûÓÒ¾ØÕó
+		* é‡è½½ Matrix4x4 operator*(const Matrix4x4 A)æ–¹æ³•ä¸º*thiså³ä¹˜Aã€‚
+		* æ•°å­¦è¿ç®—å·²ç»è¢«æ ¸éªŒæ­£ç¡®
+		* @param const:Matrix4x4& A ç®—ç¬¦å³çŸ©é˜µ
 		* @return Matrix4x4
 		*/
-		Matrix4x4 operator^(const Matrix4x4& A)const {//ÓÒ³Ë
+		Matrix4x4 operator^(const Matrix4x4& A)const {//å³ä¹˜
 			Matrix4x4 result(MATRIX_INIT_WITH_ALL_0);
 			for (int row = 0;row <= 3;row++) {
 				for (int col = 0;col <= 3;col++) {
 					for (int _ = 0;_ <= 3;_++) {
 						//std::ostringstream oss;
 						result.values[row][col] += this->values[row][_] * A.values[_][col];
-						//oss << "¼ÆËã¹ı³Ì £¨" << row << "," << col << "," << _ << "):\n" << result.toString();
+						//oss << "è®¡ç®—è¿‡ç¨‹ ï¼ˆ" << row << "," << col << "," << _ << "):\n" << result.toString();
 						//LOG_APPEND(oss.str());
 					}
 				}
@@ -160,13 +160,21 @@ namespace Fern {
 
 
 		/**
-		* @brief ½«ÏòÁ¿Ó¦ÓÃ¾ØÕó±ä»»µ½ĞÂµÄÏòÁ¿
-		* @param const:Vector3D& v ´ı±ä»»ÏòÁ¿
-		* @return Vector3D ±ä»»½á¹û
+		* @brief å°†å‘é‡åº”ç”¨çŸ©é˜µå˜æ¢åˆ°æ–°çš„å‘é‡
+		* @param const:Vector3D& v å¾…å˜æ¢å‘é‡
+		* @return Vector3D å˜æ¢ç»“æœ
 		*/
 		Vector3D operator*(const Vector3D& v) const {
 			double w = values[3][0] * v.x + values[3][1] * v.y + values[3][2] * v.z + values[3][3];
-			if (Math::isNearlyEqual(w, 0.0)) return Vector3D(0, 0, 0);
+			
+			if (Math::isNearlyEqual(w, 0.0)) {
+				return Vector3D(
+					114,
+					514,
+					1919
+				);
+			}
+			
 			return Vector3D(
 				(values[0][0] * v.x + values[0][1] * v.y + values[0][2] * v.z + values[0][3]) / w,
 				(values[1][0] * v.x + values[1][1] * v.y + values[1][2] * v.z + values[1][3]) / w,
@@ -174,9 +182,67 @@ namespace Fern {
 			);
 		}
 
-		// ¾²Ì¬¹¤³§·½·¨
+		/// <summary>
+		/// ä»¿å°„çŸ©é˜µæ±‚é€†
+		/// </summary>
+		/// <returns></returns>
+		inline Matrix4x4 operator~()const {
+			// 0. å…ˆåˆ¤å®šæœ€åä¸€è¡Œæ˜¯ä¸æ˜¯[0, 0, 0, 1]ã€‚å¦‚æœä¸æ˜¯ï¼Œéœ€è¦æ¥å…¥åç»­çš„å®Œæ•´æ±‚é€†é€»è¾‘ã€‚æ­¤å¤„ç€é‡ä»¿å°„çŸ©é˜µæ±‚é€†ã€‚
+			if (Math::isNearlyEqual(this->values[3][0], 0.0))return Matrix4x4();
+			if (Math::isNearlyEqual(this->values[3][1], 0.0))return Matrix4x4();
+			if (Math::isNearlyEqual(this->values[3][2], 0.0))return Matrix4x4();
+			if (Math::isNearlyEqual(this->values[3][3], 1.0))return Matrix4x4();
+
+			// 1. æå– 3Ã—3 çº¿æ€§éƒ¨åˆ†
+			double a00 = values[0][0], a01 = values[0][1], a02 = values[0][2];
+			double a10 = values[1][0], a11 = values[1][1], a12 = values[1][2];
+			double a20 = values[2][0], a21 = values[2][1], a22 = values[2][2];
+
+			// 2. è®¡ç®— 3Ã—3 è¡Œåˆ—å¼
+			double det = a00 * (a11 * a22 - a12 * a21)
+				- a01 * (a10 * a22 - a12 * a20)
+				+ a02 * (a10 * a21 - a11 * a20);
+
+			if (fabs(det) < 1e-10) {
+				// çŸ©é˜µä¸å¯é€†ï¼Œè¿”å›å•ä½çŸ©é˜µæˆ–æŠ›å‡ºå¼‚å¸¸
+				return Matrix4x4();  // å•ä½çŸ©é˜µ
+			}
+
+			double invDet = 1.0 / det;
+
+			// 3. è®¡ç®— 3Ã—3 éƒ¨åˆ†çš„é€†ï¼ˆä¼´éšçŸ©é˜µ / detï¼‰
+			Matrix4x4 result(MATRIX_INIT_WITH_ALL_0);
+
+			result.values[0][0] = (a11 * a22 - a12 * a21) * invDet;
+			result.values[0][1] = (a02 * a21 - a01 * a22) * invDet;
+			result.values[0][2] = (a01 * a12 - a02 * a11) * invDet;
+
+			result.values[1][0] = (a12 * a20 - a10 * a22) * invDet;
+			result.values[1][1] = (a00 * a22 - a02 * a20) * invDet;
+			result.values[1][2] = (a02 * a10 - a00 * a12) * invDet;
+
+			result.values[2][0] = (a10 * a21 - a11 * a20) * invDet;
+			result.values[2][1] = (a01 * a20 - a00 * a21) * invDet;
+			result.values[2][2] = (a00 * a11 - a01 * a10) * invDet;
+
+			// 4. è®¡ç®—å¹³ç§»éƒ¨åˆ†çš„é€†ï¼š-Râ»Â¹ Â· t
+			double tx = values[0][3];
+			double ty = values[1][3];
+			double tz = values[2][3];
+
+			result.values[0][3] = -(result.values[0][0] * tx + result.values[0][1] * ty + result.values[0][2] * tz);
+			result.values[1][3] = -(result.values[1][0] * tx + result.values[1][1] * ty + result.values[1][2] * tz);
+			result.values[2][3] = -(result.values[2][0] * tx + result.values[2][1] * ty + result.values[2][2] * tz);
+
+			// 5. æœ€åä¸€è¡Œä¿æŒ (0, 0, 0, 1)
+			result.values[3][3] = 1.0;
+
+			return result;
+		}
+
+		// é™æ€å·¥å‚æ–¹æ³•
 		/**
-		* @brief µ¥Î»¾ØÕó
+		* @brief å•ä½çŸ©é˜µ
 		* @return static Matrix4x4
 		*/
 		inline static Matrix4x4 Identity() {
@@ -184,8 +250,8 @@ namespace Fern {
 		}
 
 		/**
-		* @brief Æ½ÒÆ±ä»»¾ØÕó
-		* @param const:double& tx,ty,tz Æ½ÒÆÈı·ÖÁ¿
+		* @brief å¹³ç§»å˜æ¢çŸ©é˜µ
+		* @param const:double& tx,ty,tz å¹³ç§»ä¸‰åˆ†é‡
 		* @return static Matrix4x4 
 		*/
 		inline static Matrix4x4 Translation(const double& tx, const double& ty, const double& tz) {
@@ -197,8 +263,8 @@ namespace Fern {
 		}
 
 		/**
-		* @brief °´ÏòÁ¿Æ½ÒÆ±ä»»¾ØÕó
-		* @param const:Vector3D& v Æ½ÒÆÏòÁ¿
+		* @brief æŒ‰å‘é‡å¹³ç§»å˜æ¢çŸ©é˜µ
+		* @param const:Vector3D& v å¹³ç§»å‘é‡
 		* @return static Matrix4x4
 		*/
 		inline static Matrix4x4 Translation(const Vector3D& v) {
@@ -210,8 +276,8 @@ namespace Fern {
 		}
 
 		/**
-		* @brief Ëõ·Å±ä»»¾ØÕó
-		* @param const:double& sz,sy,sz Ëõ·ÅÈıÖá±ÈÀı
+		* @brief ç¼©æ”¾å˜æ¢çŸ©é˜µ
+		* @param const:double& sz,sy,sz ç¼©æ”¾ä¸‰è½´æ¯”ä¾‹
 		* @return static Matrix4x4
 		*/
 		inline static Matrix4x4 Scale(const double& sx, const double& sy, const double& sz) {
@@ -223,8 +289,8 @@ namespace Fern {
 		}
 
 		/**
-		* @brief Ëõ·Å±ä»»¾ØÕó
-		* @param const:Vector3D& v Ëõ·ÅÈıÖá±ÈÀıÏòÁ¿
+		* @brief ç¼©æ”¾å˜æ¢çŸ©é˜µ
+		* @param const:Vector3D& v ç¼©æ”¾ä¸‰è½´æ¯”ä¾‹å‘é‡
 		* @return static Matrix4x4
 		*/
 		inline static Matrix4x4 Scale(const Vector3D& v) {
@@ -236,8 +302,8 @@ namespace Fern {
 		}
 
 		/**
-		* @brief ÈÆxÖáÕı·½ÏòÄæÊ±ÕëĞı×ª±ä»»¾ØÕó
-		* @param const:double& angle Ğı×ª½Ç¶È
+		* @brief ç»•xè½´æ­£æ–¹å‘é€†æ—¶é’ˆæ—‹è½¬å˜æ¢çŸ©é˜µ
+		* @param const:double& angle æ—‹è½¬è§’åº¦
 		* @return static Matrix4x4
 		*/
 		inline static Matrix4x4 RotationX(const double& angle) {
@@ -249,8 +315,8 @@ namespace Fern {
 		}
 
 		/**
-		* @brief ÈÆyÖáÕı·½ÏòÄæÊ±ÕëĞı×ª±ä»»¾ØÕó
-		* @param const:double& angle Ğı×ª½Ç¶È
+		* @brief ç»•yè½´æ­£æ–¹å‘é€†æ—¶é’ˆæ—‹è½¬å˜æ¢çŸ©é˜µ
+		* @param const:double& angle æ—‹è½¬è§’åº¦
 		* @return static Matrix4x4
 		*/
 		inline static Matrix4x4 RotationY(const double& angle) {
@@ -262,8 +328,8 @@ namespace Fern {
 		}
 
 		/**
-		* @brief ÈÆzÖáÕı·½ÏòÄæÊ±ÕëĞı×ª±ä»»¾ØÕó
-		* @param const:double& angle Ğı×ª½Ç¶È
+		* @brief ç»•zè½´æ­£æ–¹å‘é€†æ—¶é’ˆæ—‹è½¬å˜æ¢çŸ©é˜µ
+		* @param const:double& angle æ—‹è½¬è§’åº¦
 		* @return static Matrix4x4
 		*/
 		inline static Matrix4x4 RotationZ(const double& angle) {
@@ -275,9 +341,9 @@ namespace Fern {
 		}
 
 		/**
-		* @brief Ö¸¶¨Ğı×ª»ùµãÈÆXĞı×ª
-		* @param const:double& angle Ğı×ª½Ç¶È
-		* @param const:Fern::Vector3D& origin Ğı×ª»ùµã
+		* @brief æŒ‡å®šæ—‹è½¬åŸºç‚¹ç»•Xæ—‹è½¬
+		* @param const:double& angle æ—‹è½¬è§’åº¦
+		* @param const:Fern::Vector3D& origin æ—‹è½¬åŸºç‚¹
 		* @return static Matrix4x4
 		*/
 		inline static Matrix4x4 RotationAroundOriginX(const double& angle,const Fern::Vector3D& origin) {
@@ -293,9 +359,9 @@ namespace Fern {
 		}
 
 		/**
-		* @brief Ö¸¶¨Ğı×ª»ùµãÈÆYĞı×ª
-		* @param const:double& angle Ğı×ª½Ç¶È
-		* @param const:Fern::Vector3D& origin Ğı×ª»ùµã
+		* @brief æŒ‡å®šæ—‹è½¬åŸºç‚¹ç»•Yæ—‹è½¬
+		* @param const:double& angle æ—‹è½¬è§’åº¦
+		* @param const:Fern::Vector3D& origin æ—‹è½¬åŸºç‚¹
 		* @return static Matrix4x4
 		*/
 		inline static Matrix4x4 RotationAroundOriginY(const double& angle, const Fern::Vector3D& origin) {
@@ -311,9 +377,9 @@ namespace Fern {
 		}
 
 		/**
-		* @brief Ö¸¶¨Ğı×ª»ùµãÈÆZĞı×ª
-		* @param const:double& angle Ğı×ª½Ç¶È
-		* @param const:Fern::Vector3D& origin Ğı×ª»ùµã
+		* @brief æŒ‡å®šæ—‹è½¬åŸºç‚¹ç»•Zæ—‹è½¬
+		* @param const:double& angle æ—‹è½¬è§’åº¦
+		* @param const:Fern::Vector3D& origin æ—‹è½¬åŸºç‚¹
 		* @return static Matrix4x4
 		*/
 		inline static Matrix4x4 RotationAroundOriginZ(const double& angle, const Fern::Vector3D& origin) {
@@ -329,11 +395,11 @@ namespace Fern {
 		}
 
 		/**
-		* @brief Á÷Ê½Êä³ö
-		* @warning Ã»ÓĞ #include <iostream> Ê±¿ÉÄÜ»áµ¼ÖÂ±àÒë²»Í¨¹ı¡£Èç¹ûĞèÒª³¹µ×È¡ÏûÁ÷Ê½Êä³öÇë×¢Òâ¡£
-		* @param std::ostream& os Êä³öÁ÷£¬¿ÉÒÔÊÇ¿ØÖÆÌ¨¡£
-		* @param const:Fern::Matrix4x4& mat ´ıÊä³ö¾ØÕó
-		* @return std::ostream std::ostream os ÒÔ±ãÖ§³ÖÁ´Ê½µ÷ÓÃ¡£
+		* @brief æµå¼è¾“å‡º
+		* @warning æ²¡æœ‰ #include <iostream> æ—¶å¯èƒ½ä¼šå¯¼è‡´ç¼–è¯‘ä¸é€šè¿‡ã€‚å¦‚æœéœ€è¦å½»åº•å–æ¶ˆæµå¼è¾“å‡ºè¯·æ³¨æ„ã€‚
+		* @param std::ostream& os è¾“å‡ºæµï¼Œå¯ä»¥æ˜¯æ§åˆ¶å°ã€‚
+		* @param const:Fern::Matrix4x4& mat å¾…è¾“å‡ºçŸ©é˜µ
+		* @return std::ostream std::ostream os ä»¥ä¾¿æ”¯æŒé“¾å¼è°ƒç”¨ã€‚
 		*/
 		friend std::ostream& operator<<(std::ostream& os, const Matrix4x4& mat) {
 			for (int i = 0; i < 4; i++) {
@@ -346,9 +412,9 @@ namespace Fern {
 		}
 
 		/**
-		* @brief Ïò×Ö·û´®×ª»»
-		* @warning Ã»ÓĞ #include <ostringstream> Ê±¿ÉÄÜ»áµ¼ÖÂ±àÒë²»Í¨¹ı¡£Èç¹ûĞèÒª³¹µ×È¡ÏûÁ÷Ê½Êä³öÇë×¢Òâ¡£
-		* @return std::string Êä³ö×ª»»½á¹û
+		* @brief å‘å­—ç¬¦ä¸²è½¬æ¢
+		* @warning æ²¡æœ‰ #include <ostringstream> æ—¶å¯èƒ½ä¼šå¯¼è‡´ç¼–è¯‘ä¸é€šè¿‡ã€‚å¦‚æœéœ€è¦å½»åº•å–æ¶ˆæµå¼è¾“å‡ºè¯·æ³¨æ„ã€‚
+		* @return std::string è¾“å‡ºè½¬æ¢ç»“æœ
 		*/
 		std::string toString() const {
 			std::ostringstream oss;
@@ -364,6 +430,7 @@ namespace Fern {
 			return oss.str();
 		}
 		
+
 	};
 
 	

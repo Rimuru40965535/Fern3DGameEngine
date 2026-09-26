@@ -34,7 +34,7 @@ namespace Fern::Math {
 	/// <param name="prisicion">相等阈值</param>
 	/// <returns>两数相等为true</returns>
 	inline bool isNearlyEqual(double A, double B, double prisicion = 1e-6) {
-		return (A - B > prisicion || B - A > prisicion) ? true : false;
+        return (A - B > prisicion && B - A > prisicion);
 	}
 
 	/// <summary>

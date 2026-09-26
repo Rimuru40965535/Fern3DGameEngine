@@ -40,7 +40,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="03-Rainbow_Window.cpp">
+    <ClCompile Include="04-Inverse_test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
