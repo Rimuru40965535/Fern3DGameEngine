@@ -16,9 +16,10 @@
 
 ---
 
-`isNearlyEqual()`
--
+### `isNearlyEqual()`
+
 - 参数
+
 | 名称 | 类型 | 默认值 | 含义 |
 | --- | --- | --- | --- |
 |`A`|`double`|  |待比较值|
@@ -31,8 +32,8 @@
         - 否则返回`false`。
   
 
-`inline static double Q_rsqrt_double(double)` 
--
+### `inline static double Q_rsqrt_double(double)` 
+
 - 函数说明
     - 将一个数的倒数开平方，获取结果
 - 参数
@@ -40,8 +41,8 @@
 - 返回值
     - 运算结果。
 
-`inline double Factoriaal(int)` 
--
+### `inline double Factoriaal(int)` 
+
 - 函数说明
     - 计算阶乘喵。采取硬编码模式取代计算喵。
     - 此处存在方案比选。
@@ -53,8 +54,8 @@
     - 算好了拿给你
 
 
-`inline double Cosine(double x, int terms)` 
--
+### `inline double Cosine(double x, int terms)` 
+
 - 函数说明
     - 计算给定角度的余弦值喵。此处采取了泰勒展开式计算，依赖阶乘函数。
     - 此函数的具体实现由 AI 实现。
@@ -68,8 +69,8 @@
 - 未来计划的更新
     - 未来计划采用CORDIC算法实现函数功能，将会完全替代该函数喵。
 
-`inline double Sine(double x, int terms)` 
--
+### `inline double Sine(double x, int terms)` 
+
 - 函数说明
     - 计算给定角度的正弦值喵。此处采取了泰勒展开式计算，依赖阶乘函数。
     - 此函数的具体实现由 AI 实现。
@@ -83,8 +84,8 @@
 - 未来计划的更新
     - 未来计划采用CORDIC算法实现函数功能，将会完全替代该函数喵。
 
-`inline double Tangent(double x, int terms)` 
--
+### `inline double Tangent(double x, int terms)` 
+
 - 函数说明
     - 计算给定角度的正切值喵。此处采取了三角关系式计算，依赖正弦函数和余弦函数。
     - 此函数的具体实现由 AI 实现。
@@ -100,11 +101,11 @@
     - 未来计划采用CORDIC算法实现函数功能，将会完全替代该函数喵。
 
 
-`inline double DegToRad(double deg)`  
--
+### `inline double DegToRad(double deg)`  
 
-`inline double RadToDeg(double rad)`  
--
+
+### `inline double RadToDeg(double rad)`  
+
 - 函数说明
     - 角度制弧度制转换函数  
 
@@ -116,7 +117,7 @@
 
 这个文件存储颜色类统一接口。
 
-以下是Color类的属性。
+### 以下是Color类的属性。
 ```
 struct Fern::Color{
     public:
@@ -131,7 +132,7 @@ struct Fern::Color{
 }
 ```
 
-以下是Color类的方法：
+### 以下是Color类的方法：
 
 |                方法                 |            作用            |
 | :-------------------------------: | :----------------------: |
@@ -142,7 +143,7 @@ struct Fern::Color{
 |          `  getARGB() `           |           获取色号           |
 |`ToEasyxColor()`                   | 获取EazyX格式的颜色|
 
-以及预定义颜色：
+### 以及预定义颜色：
 |                 | 颜色名称 |
 | :-------------: | :--: |
 |     `Red()`     |  红   |
@@ -194,8 +195,8 @@ typedef class Vector3D {
 
 ### 类提供以下方法：
 
-`Vector3D()`
--
+#### `Vector3D()`
+
 构造方法。根据传入的参数不同，返回不同的向量。
 
 | 参数列表 | 返回向量 |
@@ -205,16 +206,16 @@ typedef class Vector3D {
 |`Vector3D`|与给定的向量相等的向量|
 |`Vectir3D A, Vector3D B`| 向量 $ B-A $ |
 
-`=`
--
+#### `=`
+
 重载的赋值方法，成员函数  
 - 参数
     - Vector3D
 - 返回值
     - `*this`
 
-`==`
--
+#### `==`
+
 重载的判等方法，成员函数  
 - 参数
     - Vector3D
@@ -223,8 +224,8 @@ typedef class Vector3D {
     - 其余情况返回 `true`
 
 
-`+` `+=`
--
+#### `+` 、`+=`
+
 重载的向量加法，区别仅仅是有无赋值环节。成员函数。
 - 参数
     - Vector3D 加向量
@@ -232,8 +233,8 @@ typedef class Vector3D {
     - Vector3D 和向量
 
 
-`-` `-=`
--
+#### `-` 、`-=`
+
 重载的向量减法，区别仅仅是有无赋值环节。成员函数。
 - 参数
     - Vector3D 减向量
@@ -241,8 +242,8 @@ typedef class Vector3D {
     - Vector3D 差向量
 
 
-`*` `*=`
--
+#### `*` 、`*=`
+
 重载的向量数乘，区别仅仅是有无赋值环节。成员函数。
 - 参数
     - double 乘数
@@ -250,40 +251,40 @@ typedef class Vector3D {
     - Vector3D 积向量
 
 
-`*`
--
+#### `*`
+
 重载的向量内积。成员函数。
 - 参数
     - Vector3D 乘向量
 - 返回值
     - double 内积
 
-`%` `%=`
--
+#### `%` 、`%=`
+
 重载的向量外积，区别仅仅是有无赋值环节。成员函数。
 - 参数
     - Vector3D 乘向量
 - 返回值
     - Vector3D 积向量
 
-`inline double getLengthSquared()`
--
+#### `inline double getLengthSquared()`
+
 获取模长的平方。成员函数。
 - 参数
     - 无
 - 返回值
     - double 模长平方
 
-`getLength()` 
--
+#### `getLength()` 
+
 获取模长
 - 参数
     - 无
 - 返回值
     - double 模长
 
-`setPos()`
--
+#### `setPos()`
+
 重设点。成员函数。
 不同的参数对应不同的功能
 | 参数列表 | 执行功能 | 返回值 |
@@ -292,8 +293,8 @@ typedef class Vector3D {
 | `Vector3D` | 指定一个与重设向量相等的向量 | `*this` |
 
 
-`makeLengthUnit()`
--
+#### `makeLengthUnit()`
+
 将一个向量的模长设定为 1 ，且保持方向不变。成员函数。
 - 参数
     - 无
@@ -301,20 +302,20 @@ typedef class Vector3D {
     - `*this`
 
 
-`makeLengthUnitCopy()` 
--
+#### `makeLengthUnitCopy()` 
+
 将一个向量的模长设定为 1 ，且保持方向不变，不改变自身向量的值，生成一个副本。成员函数。
 - 参数
     - 无
 - 返回值
     - Vector3D 重设后向量
 
-`friend Vector3D operator*()`
--
+#### `friend Vector3D operator*()`
+
 保证向量数乘写反不崩溃的友元函数。*参见：opreator\**
 
-`friend std::ostream& operator<<`
--
+#### `friend std::ostream& operator<<`
+
 输出至控制台登场景，获取字符串。
 
 ### 预定义的工厂方法
@@ -352,8 +353,8 @@ values[3][0]    values[3][1]    values[3][2]    values[3][3]
 
 ### Matrix4x4 类的方法如下
 
-`Matrix4x4()`
--
+#### `Matrix4x4()`
+
 重载的构造方法。
 - 参数
     - (int = 1) 矩阵生成初始化填充样板
@@ -378,16 +379,16 @@ values[3][0]    values[3][1]    values[3][2]    values[3][3]
 | 8 | 9 | 10| 11|
 | 12| 13| 14| 15|
 
-`=`
--
+#### `=`
+
 重载的赋值函数。将一个矩阵的值赋值给另一个矩阵。
 - 参数
     - Matrix4x4 
 - 返回值
     - `*this`
 
-`+` `+=`
--
+#### `+` 、`+=`
+
 矩阵加法。区别仅限有没有赋值操作。成员函数。
 - 参数
     - Matrix4x4 加矩阵
@@ -395,24 +396,24 @@ values[3][0]    values[3][1]    values[3][2]    values[3][3]
     - Matrix4x4 和矩阵
 
 
-`-` `-=`
--
+#### `-` 、`-=`
+
 矩阵减法。区别仅限有没有赋值操作。成员函数。
 - 参数
     - Matrix4x4 减矩阵
 - 返回值
     - Matrix4x4 差矩阵
 
-`*` `*=`
--
+#### `*` 、`*=`
+
 重载的矩阵左乘。区别仅限有没有赋值操作。成员函数。
 - 参数
     - Matrix4x4 左矩阵
 - 返回值
     - 积矩阵
 
-`*`
--
+#### `*`
+
 重载的向量左乘矩阵。成员函数。
 - 参数
     - Vector3D 待变换向量
@@ -420,16 +421,16 @@ values[3][0]    values[3][1]    values[3][2]    values[3][3]
     - 变换结果
 
 
-`^` 
--
+#### `^` 
+
 矩阵右乘。区别仅限有没有赋值操作。成员函数。
 - 参数
     - Matrix4x4 右矩阵
 - 返回值
     - 积矩阵
 
-`~`
--
+#### `~`
+
 矩阵求逆。专门用于仿射矩阵求逆。如果不是仿射矩阵，或者矩阵不可逆，返回单位矩阵。
 - 参数
     - 无
@@ -438,12 +439,12 @@ values[3][0]    values[3][1]    values[3][2]    values[3][3]
 
 ### 可能会在未来的版本废弃的函数
  
-`friend std::ostream& operator<<()`
--
+#### `friend std::ostream& operator<<()`
+
 重载的流式输出友元函数。
 
-`std::string toString()`
--
+#### `std::string toString()`
+
 获取字符串形式矩阵。曾用于调试矩阵运算，输出运算步骤与结果。
 
 ### 预定义的工厂方法
@@ -489,8 +490,8 @@ values[3][0]    values[3][1]    values[3][2]    values[3][3]
 
 ### Window类的方法如下
 
-`Window()`
--
+#### `Window()`
+
 构造方法。
 指定宽高，自动创建窗口，初始化视窗变换矩阵，同时自动开启批量绘图功能。
 - 参数
@@ -501,37 +502,37 @@ values[3][0]    values[3][1]    values[3][2]    values[3][3]
     
 ***没有拷贝构造函数以及赋值函数。***
 
-`Clear()`
--
+#### `Clear()`
+
 清除屏幕，填充背景色。
 - 参数
     - 无
 - 返回值
     - 无
 
-`Present()`
--
+#### `Present()`
+
 交换缓冲区，显示绘图内容。
 - 参数
     - 无
 - 返回值
     - 无
     
-`PullEvents()`
--
+#### `PullEvents()`
+
 处理窗口消息函数。  
 ***空实现***  
 
-`ShouldClose()`
--
+#### `ShouldClose()`
+
 检测窗口是否应该被关闭。
 - 参数
     - 无
 - 返回值
     - `!isOpen`
 
-`Width()` `Height()`
--
+#### `Width()` 、`Height()`
+
 获取窗口宽度、高度。
 - 参数
     - 无
@@ -539,8 +540,8 @@ values[3][0]    values[3][1]    values[3][2]    values[3][3]
     - int 窗口宽度（或高度）
 
 
-`DrawPixel()`
--
+#### `DrawPixel()`
+
 逐像素绘制。  
 内部已经内置剔除逻辑，将超过视窗范围的像素剔除跳过绘制。
 - 参数
