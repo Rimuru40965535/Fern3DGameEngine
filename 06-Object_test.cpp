@@ -1,4 +1,12 @@
-
+/**
+* @file 06-Object-test.cpp
+* @brief 物体基类单元测试
+* @details
+* 
+* @author 半人马座beta星 （AIGC：DeepSeek）
+* @date 2026-9-28
+* 
+*/
 #include "Fern3DGameEngine.h"
 
 using namespace Fern;

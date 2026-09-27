@@ -38,6 +38,7 @@
         - 02.Window_class_append.cpp
         - 03-Rainbow_Window.cpp
         - 04-Inverse_test.cpp
+        - 05-Rotate_test.cpp
     - render
         - Window.h
     - game_object
@@ -48,6 +49,7 @@
 - README.md
 - 原理文档.md
 - Fern3DGameEngine.h
+- 06-Object_test.cpp
 
 
 ---
@@ -144,6 +146,32 @@ class Object{
 
 #### 在文档开头的注释
 
+由于我的 IDE 在文档开头打三个斜杠不会自动跳出来除了三个斜杠外的任何东西，所以这里还是采取老模板。  
+
+注意在这个项目中只需要一句 `#include` 语句就可以自动包含整个头文件库。  
+你可以阅读 HOW_TO_RUN.md 以及 `Fern3DGameEngine.h` 明白为什么可以这么做。  
+
+```
+/**
+* @file 06-Object-test.cpp
+* @brief 物体基类单元测试
+* @details
+* 
+* @author （如果你没有我的用户名，留白） （AIGC：写上你的名字）
+* @date （写上日期）
+* 
+*/
+#include "Fern3DGameEngine.h"
+
+```
+
+namespace 的默认约定为可选项。  
+如果你嫌反复生成 `Fern::` 麻烦可以选择加上这个约定。
+如果遇到了容易混淆的名称，那么就不要加上这个约定，在名字前面加上命名空间和四目运算符（`::`）以示区分。
+
+```
+using namespace Fern;
+```
 
 
 
