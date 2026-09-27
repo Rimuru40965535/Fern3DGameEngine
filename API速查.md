@@ -770,6 +770,74 @@ class Mesh {
 - 返回值
     - Mesh 网格，里面应该有一个立方体。
 
+---
+---
+
+## `RenderObject.h`
+
+文件存放可渲染物体派生类的定义。
+使用命名空间： `Fern::Scene`
+
+### `RenderObject` 类的属性与方法
+
+``` 
+class RenderObject : public Object {
+    protected:
+        Mesh* mesh;         ///< 指向网格数据（可共享）
+        Color color;        ///< 物体的颜色
+        bool visible;       ///< 是否可见
+
+    public:
+        /**
+        * @brief 默认构造函数
+        */
+        RenderObject()
+            : Object(),
+            mesh(nullptr),
+            color(Color::White()),
+            visible(true)
+        {
+        }
+
+        /**
+        * @brief 带参构造函数
+        * @param Mesh* m 指向网格的指针
+        * @param Color c 物体的颜色
+        */
+        RenderObject(Mesh* m, Color c)
+            : Object(),
+            mesh(m),
+            color(c),
+            visible(true)
+        {
+        }
+
+        /**
+        * @brief 虚析构函数
+        */
+        virtual ~RenderObject() override = default;
+
+        // ========== 网格访问 ==========
+
+        void SetMesh(Mesh* m) { mesh = m; }
+        Mesh* GetMesh() const { return mesh; }
+
+        // ========== 颜色访问 ==========
+
+        void SetColor(Color c) { color = c; }
+        Color GetColor() const { return color; }
+
+        // ========== 可见性 ==========
+
+        void SetVisible(bool v) { visible = v; }
+        bool IsVisible() const { return visible; }
+    };
+```
+
+---
+---
+
+
 
 
 

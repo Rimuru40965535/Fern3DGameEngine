@@ -48,3 +48,4 @@ namespace Fern{}
 
 #include "FernPack/game_object/Object.h"
 #include "FernPack/game_object/Mesh.h"
+#include "FernPack/game_object/RenderObject.h"

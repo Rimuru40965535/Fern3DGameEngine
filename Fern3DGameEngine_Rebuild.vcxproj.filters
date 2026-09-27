@@ -40,7 +40,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="07-Mesh_test.cpp">
+    <ClCompile Include="08-RenderObject_test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

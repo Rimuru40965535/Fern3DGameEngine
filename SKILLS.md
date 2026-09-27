@@ -40,6 +40,7 @@
         - 04-Inverse_test.cpp
         - 05-Rotate_test.cpp
         - 06-Object_test.cpp
+        - 07-Mesh_test.cpp
     - render
         - Window.h
     - game_object
@@ -51,7 +52,7 @@
 - README.md
 - 原理文档.md
 - Fern3DGameEngine.h
-- 07-Mesh_test.cpp
+- 08-RenderObject_test.cpp
 
 
 
