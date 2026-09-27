@@ -40,7 +40,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="04-Inverse_test.cpp">
+    <ClCompile Include="05-Rotate_test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

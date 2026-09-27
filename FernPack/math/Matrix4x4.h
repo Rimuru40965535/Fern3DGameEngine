@@ -160,8 +160,8 @@ namespace Fern {
 
 
 		/**
-		* @brief 将向量应用矩阵变换到新的向量
-		* @param const:Vector3D& v 待变换向量
+		* @brief 将向量应用矩阵变换到新的向量，变换空间点
+		* @param const:Vector3D& v 待变换空间点
 		* @return Vector3D 变换结果
 		*/
 		Vector3D operator*(const Vector3D& v) const {
@@ -179,6 +179,19 @@ namespace Fern {
 				(values[0][0] * v.x + values[0][1] * v.y + values[0][2] * v.z + values[0][3]) / w,
 				(values[1][0] * v.x + values[1][1] * v.y + values[1][2] * v.z + values[1][3]) / w,
 				(values[2][0] * v.x + values[2][1] * v.y + values[2][2] * v.z + values[2][3]) / w
+			);
+		}
+
+		/// <summary>
+		/// 将矩阵变换应用于向量得到新的向量，变换空间方向。没有内置矩阵求逆和转置便于批量处理法向量。
+		/// </summary>
+		/// <param name="v">待变换法向量</param>
+		/// <returns></returns>
+		Vector3D operator^ (const Vector3D& v) const {
+			return Vector3D(
+				(values[0][0] * v.x + values[0][1] * v.y + values[0][2] * v.z ) ,
+				(values[1][0] * v.x + values[1][1] * v.y + values[1][2] * v.z ) ,
+				(values[2][0] * v.x + values[2][1] * v.y + values[2][2] * v.z ) 
 			);
 		}
 
@@ -203,7 +216,7 @@ namespace Fern {
 				- a01 * (a10 * a22 - a12 * a20)
 				+ a02 * (a10 * a21 - a11 * a20);
 
-			if (fabs(det) < 1e-10) {
+			if (Math::isNearlyEqual(det, 0.0, 1e-10)) {
 				// 矩阵不可逆，返回单位矩阵或抛出异常
 				return Matrix4x4();  // 单位矩阵
 			}
@@ -237,6 +250,20 @@ namespace Fern {
 			// 5. 最后一行保持 (0, 0, 0, 1)
 			result.values[3][3] = 1.0;
 
+			return result;
+		}
+
+		/// <summary>
+		/// 矩阵转置
+		/// </summary>
+		/// <returns></returns>
+		inline  Matrix4x4 operator!() {
+			Matrix4x4 result;
+			for (int i = 0;i <= 3;i++) {
+				for (int j = 0;j <= 3;j++) {
+					result.values[i][j] = this->values[j][i];
+				}
+			}
 			return result;
 		}
 
