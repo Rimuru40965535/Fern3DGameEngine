@@ -45,3 +45,5 @@ namespace Fern{}
 #include "FernPack/math/Matrix4x4.h"
 
 #include "FernPack/render/Window.h"
+
+#include "FernPack/game_object/Object.h"

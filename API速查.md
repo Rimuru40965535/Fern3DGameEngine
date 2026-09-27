@@ -11,8 +11,9 @@
 
 ## MathUtils.h
 
-这个文件是一个模块，主要功能是进行各种数学运算喵。
-可以说，这个模块就是整个引擎的地基喵。
+这个文件是一个模块，主要功能是进行各种数学运算喵。  
+可以说，这个模块就是整个引擎的地基喵。  
+使用命名空间： `Fern::Math`
 
 ---
 
@@ -121,7 +122,8 @@
 
 ## Color.h
 
-这个文件存储颜色类统一接口。
+这个文件存储颜色类统一接口。  
+使用命名空间： `Fern`
 
 ### 以下是Color类的属性。
 ```
@@ -168,7 +170,8 @@ struct Fern::Color{
 ---
 ## Vector3D.h
 
-这个文件定义三维向量。包括点和法向量。
+这个文件定义三维向量。包括点和法向量。  
+使用命名空间： `Fern`
 
 ### Vector3D类的属性如下：
 ```
@@ -341,7 +344,8 @@ typedef class Vector3D {
 
 ## Matrix4x4.h
 
-这个文件提供矩阵的定义以及运算法则。
+这个文件提供矩阵的定义以及运算法则。  
+使用命名空间： `Fern`
 
 ### Matrix4x4 类的属性如下
 ```
@@ -490,6 +494,7 @@ values[3][0]    values[3][1]    values[3][2]    values[3][3]
 | `RotationX()` | `double angle` | `Matrix4x4` | 生成绕x轴正向逆时针转动`angle`弧度的矩阵，旋转基点为原点 |
 | `RotationY()` | `double angle` | `Matrix4x4` | 生成绕y轴正向逆时针转动`angle`弧度的矩阵，旋转基点为原点 |
 | `RotationZ()` | `double angle` | `Matrix4x4` | 生成绕z轴正向逆时针转动`angle`弧度的矩阵，旋转基点为原点 |
+| `Rotation()` | `Vector3D` | `Matrix4x4` | 生成旋转矩阵。欧拉角顺序是ZYX，角度单位是弧度制。 |
 | `RotationAroundOriginX()` | `double angle, Vector3D origin` | `Matrix4x4` | 生成绕x轴正向逆时针转动`angle`弧度的矩阵，旋转基点为`origin` |
 | `RotationAroundOriginY()` | `double angle, Vector3D origin` | `Matrix4x4` | 生成绕y轴正向逆时针转动`angle`弧度的矩阵，旋转基点为`origin` |
 | `RotationAroundOriginZ()` | `double angle, Vector3D origin` | `Matrix4x4` | 生成绕z轴正向逆时针转动`angle`弧度的矩阵，旋转基点为`origin` |
@@ -500,8 +505,9 @@ values[3][0]    values[3][1]    values[3][2]    values[3][3]
 
 ## `Window.h`
 
-文件存储一个管理窗口行为的类。
-这个类是程序与EazyX通讯的桥梁。
+文件存储一个管理窗口行为的类。  
+这个类是程序与EazyX通讯的桥梁。  
+使用命名空间： `Fern`
 
 ### Window类的属性如下
 ```
@@ -590,7 +596,94 @@ values[3][0]    values[3][1]    values[3][2]    values[3][3]
 ---
 ---
 
+## `Object.h`
 
+这个类是物体的基类。以后各种物体都需要继承这个基类实现。  
+使用命名空间： `Fern::Scene`
 
+### `Object` 类的属性
+```
+class Object {
+    protected:
+        Vector3D position;      ///< 位置
+        Vector3D rotation;      ///< 旋转（欧拉角，弧度制）
+        Vector3D scale;         ///< 缩放
+
+        Matrix4x4 modelMatrix;  ///< 模型矩阵（模型空间 → 世界空间）
+        bool dirty;             ///< 脏标记，是否需要重新计算模型矩阵
+    };
+```
+### `Object` 类的方法
+
+#### `Object()`
+
+构造方法。
+
+构造一个默认的物体基类。原点平移到世界原点，无旋转，无拉伸（拉伸三轴比例为1：1：1）。
+- 参数
+    - 无
+
+#### `virtual ~Object()`
+==虚析构函数==  
+***空实现***  
+
+#### `SetPosition()`
+设定位置
+- 参数
+    - `const Vector3D&` 新坐标
+- 返回值
+    - 无
+
+#### `SetRotation()`
+设定旋转。  
+采取欧拉角顺序ZYX进行旋转。
+- 参数
+    - `const Vector3D&` 新绕三轴旋转角度
+- 返回值
+    - 无
+
+#### `SetScale()`
+设定拉伸。  
+- 参数
+    - `const Vector3D&` 新三轴拉伸比
+- 返回值
+    - 无
+
+#### `GetPosition()`
+Getter函数，用于返回位置
+- 参数
+    - 无
+- 返回值
+    - Vector3D 属性 `position` 
+
+#### `GetRotation()`
+Getter函数，用于返回旋转角度
+- 参数
+    - 无
+- 返回值
+    - Vector3D 属性 `rotation` 
+
+#### `GetScale()`
+Getter函数，用于返回三轴拉伸比
+- 参数
+    - 无
+- 返回值
+    - Vector3D 属性 `scale` 
+
+#### `GetModelMatrix()`
+获取模型矩阵。  
+如果脏标记为true，就需要重新计算模型矩阵。否则直接返回已经计算好的模型矩阵。  
+- 参数
+    - 无
+- 返回值
+    - Matrix4x4 模型矩阵
+
+#### `virtual void Update()`
+更新接口。  
+==虚函数==。
+***空实现***
+
+---
+---
 
 

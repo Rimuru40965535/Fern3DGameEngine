@@ -21,7 +21,7 @@
 namespace Fern {
 	class Matrix4x4 {
 	public:
-		double values[4][4];		///values[行号][列标]
+		double values[4][4];		///< values[行号][列标]
 
 	public:
 		Matrix4x4(int matrixInitSettings = MATRIX_INIT_WITH_UNIT_MATRIX) {
@@ -419,6 +419,18 @@ namespace Fern {
 			result = result * Translation(origin);
 
 			return result;
+		}
+
+		/// <summary>
+		/// 旋转矩阵的生成。欧拉角顺序为ZYX
+		/// </summary>
+		/// <param name="eulerAngles">弧度制角度</param>
+		/// <returns>合成好的旋转矩阵</returns>
+		static Matrix4x4 Rotation(const Vector3D& eulerAngles) {
+			// 按照 Z → Y → X 的顺序旋转（可根据需要调整）
+			return RotationZ(eulerAngles.z)
+				* RotationY(eulerAngles.y)
+				* RotationX(eulerAngles.x);
 		}
 
 		/**
