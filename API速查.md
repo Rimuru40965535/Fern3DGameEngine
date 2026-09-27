@@ -686,4 +686,90 @@ Getter函数，用于返回三轴拉伸比
 ---
 ---
 
+## `Mesh.h`
+
+文件存储网格类以及辅助结构体。  
+使用命名空间：`Fern::Scene`  
+
+### `Edge` 结构体
+
+```
+struct Edge {
+    union {
+        struct {
+            int verticeStart;       ///< 起始点索引
+            int verticeEnd;         ///< 终止点索引
+        };
+        int vertices[2];            ///< 数组形式的属性
+    };
+    Color color;                    ///< 边的颜色
+
+    Edge(int start, int end, Color c)
+        : verticeStart(start), verticeEnd(end), color(c) {
+    }
+};
+```
+
+### `Surface`结构体
+
+```
+struct Surface {
+    union {
+        struct {
+            int verticeA;           ///< 顶点A索引
+            int verticeB;           ///< 顶点B索引
+            int verticeC;           ///< 顶点C索引
+        };
+        int vertices[3];            ///< 数组形式的属性
+    };
+    Vector3D normal;                ///< 法向量
+    Color color;                    ///< 面的颜色
+
+    Surface(int A, int B, int C, Color c)
+        : verticeA(A), verticeB(B), verticeC(C), color(c) {
+    }
+
+    Surface(int A, int B, int C, Vector3D n, Color c)
+        : verticeA(A), verticeB(B), verticeC(C), normal(n), color(c) {
+    }
+};
+```
+
+### `Mesh` 类的属性
+
+```
+class Mesh {
+    public:
+        std::vector<Vector3D> vertices;   ///< 顶点列表
+        std::vector<Edge> edges;          ///< 边列表
+        std::vector<Surface> surfaces;    ///< 面列表
+};
+```
+
+### `Mesh` 类的方法
+
+#### `Mesh()`
+
+构造函数。保持默认。返回一个空网格。
+
+#### `CalculateNormals()`
+
+计算网格每一个面的法向量并将模长归一化的成员函数。
+- 参数
+    - 无
+- 返回值
+    - 无
+
+### 创建网格的函数
+
+#### `CreateCubeMesh()`
+
+创建一个立方体网格。测试网格的函数。用于测试 `Mesh` 类是否按预期运行。
+- 参数
+    - 无
+- 返回值
+    - Mesh 网格，里面应该有一个立方体。
+
+
+
 
