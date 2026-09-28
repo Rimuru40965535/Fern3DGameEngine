@@ -23,36 +23,7 @@
         - 反馈错误。
         - 可等待手动设置url并继续阅读。
 
-文件树如下：  
-
-项目文件夹
-- FernPack
-    - basic_function
-        - Color.h
-        - MathUtils.h
-    - math
-        - Matrix4x4.h
-        - Vector3D.h
-    - outdated_sources
-        - 01-Generate_Blank_Window.cpp
-        - 02.Window_class_append.cpp
-        - 03-Rainbow_Window.cpp
-        - 04-Inverse_test.cpp
-        - 05-Rotate_test.cpp
-        - 06-Object_test.cpp
-        - 07-Mesh_test.cpp
-    - render
-        - Window.h
-    - game_object
-        - Object.h
-        - Mesh.h
-- .gitignore
-- .gitattributes
-- API速查.md
-- README.md
-- 原理文档.md
-- Fern3DGameEngine.h
-- 08-RenderObject_test.cpp
+- 可在仓库链接中寻找最新文件树。我经常忘记手动更新，要是大肥鱼可以自动获取这一块内容就好了。
 
 
 
@@ -120,6 +91,8 @@ double tz = values[2][3];
 
 #### 对函数的注释
 
+两种模板可以自由选用。
+
 ```
 /// <summary>
 /// 矩阵转置
@@ -135,9 +108,18 @@ inline  Matrix4x4 operator!() {
     return result;
 }
 
+/**
+* @brief 判断点是否在三角形内（同侧法）
+*/
+inline int CrossProduct2D(int Ax, int Ay, int Bx, int By, int Px, int Py) {
+    return (Bx - Ax) * (Py - Ay) - (By - Ay) * (Px - Ax);
+}
+
 ```
 
 #### 对类的注释
+
+两种模板可以自由选用。
 
 ```
 /// <summary>
@@ -146,6 +128,15 @@ inline  Matrix4x4 operator!() {
 class Object{
     ......
 };
+
+    /**
+    * @brief 相机
+    * @details
+    * 继承自 Object，额外持有投影参数。
+    * 观察矩阵 = 相机模型矩阵的逆。
+    */
+    class Camera : public Object {
+
 ```
 
 #### 在文档开头的注释

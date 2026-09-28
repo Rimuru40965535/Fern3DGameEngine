@@ -934,6 +934,13 @@ class Camera : public Object {
     };
 ```
 
+注： 我没有实现单独的相机物体类方法获取观察矩阵。这个功能的实现仰仗获取模型矩阵并求逆实现。  
+
+参见：
+- `Object::GetModelMatrix`  
+- `Matrix4x4::operator~`  
+
+
 ---
 ---
 
