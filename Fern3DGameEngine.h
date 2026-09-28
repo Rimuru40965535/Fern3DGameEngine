@@ -43,6 +43,7 @@ namespace Fern{}
 
 #include "FernPack/math/Vector3D.h"
 #include "FernPack/math/Matrix4x4.h"
+#include "FernPack/math/Perspective.h"
 
 #include "FernPack/render/Window.h"
 

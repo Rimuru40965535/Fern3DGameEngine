@@ -503,6 +503,27 @@ values[3][0]    values[3][1]    values[3][2]    values[3][3]
 ---
 --- 
 
+## `Perspective.h`
+
+文件存储投影矩阵的生成函数
+- 参数
+    - int windowWidth 窗口宽度
+    - int windowHeight 窗口高度
+    - double fov_radius 弧度制fov
+    - double near_plane_z 近平面z值
+    - double far_plane_z 远平面z值
+- 返回值
+    - 如果参数正常，返回投影矩阵
+    - 如果参数出现以下异常
+        - 近平面小于0
+        - 远平面比近平面小  
+
+      返回单位矩阵
+
+
+---
+---
+
 ## `Window.h`
 
 文件存储一个管理窗口行为的类。  
