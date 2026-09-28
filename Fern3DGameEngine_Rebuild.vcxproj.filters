@@ -40,7 +40,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="09-Projection_test.cpp">
+    <ClCompile Include="10-Camera_test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

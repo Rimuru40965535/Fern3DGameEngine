@@ -14,7 +14,15 @@
 #pragma once
 
 namespace Fern {
-
+	/// <summary>
+	/// 生成投影矩阵
+	/// </summary>
+	/// <param name="windowWidth">窗口宽度</param>
+	/// <param name="windowHeight">窗口高度</param>
+	/// <param name="fov_radius">弧度制fov</param>
+	/// <param name="near_plane_z">近平面z值</param>
+	/// <param name="far_plane_z">远平面z值</param>
+	/// <returns></returns>
 	inline Matrix4x4 GeneratePerspectiveMatrix(int windowWidth, int windowHeight, double fov_radius, double near_plane_z, double far_plane_z) {
 
 		if (near_plane_z < 0) return Matrix4x4();
