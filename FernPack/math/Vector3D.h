@@ -25,7 +25,7 @@ namespace Fern {
     * @details 
     * 之所以成员会有这种联合形式，是因为使用这种联合形式，可以保证在渲染管线中不出现语法错误的同时追溯一个向量此时应该被变换到哪一步。
     */
-	typedef class Vector3D {
+	class Vector3D {
     public:
         union {
             struct {
@@ -63,7 +63,7 @@ namespace Fern {
             return *this;
         }
 
-        bool operator==(const Vector3D& A) {
+        inline bool operator==(const Vector3D& A) const {
             if (!Math::isNearlyEqual(this->x, A.x))return false;
             if (!Math::isNearlyEqual(this->y, A.y))return false;
             if (!Math::isNearlyEqual(this->z, A.z))return false;
@@ -214,21 +214,21 @@ namespace Fern {
 
     //按轴分
 
-    inline static Vector3D xPositive() { return Vector3D(1, 0, 0); }
-    inline static Vector3D yPositive() { return Vector3D(0, 1, 0); }
-    inline static Vector3D zPositive() { return Vector3D(0, 0, 1); }
-    inline static Vector3D xNegative() { return Vector3D(-1, 0, 0); }
-    inline static Vector3D yNegative() { return Vector3D(0, -1, 0); }
-    inline static Vector3D zNegative() { return Vector3D(0, 0, -1); }
+    inline  Vector3D xPositive() { return Vector3D(1, 0, 0); }
+    inline  Vector3D yPositive() { return Vector3D(0, 1, 0); }
+    inline  Vector3D zPositive() { return Vector3D(0, 0, 1); }
+    inline  Vector3D xNegative() { return Vector3D(-1, 0, 0); }
+    inline  Vector3D yNegative() { return Vector3D(0, -1, 0); }
+    inline  Vector3D zNegative() { return Vector3D(0, 0, -1); }
 
 
     //按方向分
 
-    inline static Vector3D East() { return Vector3D(1, 0, 0); }
-    inline static Vector3D South() { return Vector3D(0, 0, 1); }
-    inline static Vector3D West() { return Vector3D(-1, 0, 0); }
-    inline static Vector3D North() { return Vector3D(0, 0, -1); }
-    inline static Vector3D Up() { return Vector3D(0, 1, 0); }
-    inline static Vector3D Down() { return Vector3D(0, -1, 0); }
+    inline  Vector3D East() { return Vector3D(1, 0, 0); }
+    inline  Vector3D South() { return Vector3D(0, 0, 1); }
+    inline  Vector3D West() { return Vector3D(-1, 0, 0); }
+    inline  Vector3D North() { return Vector3D(0, 0, -1); }
+    inline  Vector3D Up() { return Vector3D(0, 1, 0); }
+    inline  Vector3D Down() { return Vector3D(0, -1, 0); }
 
 }

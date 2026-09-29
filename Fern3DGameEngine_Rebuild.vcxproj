@@ -148,12 +148,7 @@
     <None Include="原理文档.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Fern3DGameEngine.h" />
-    <ClInclude Include="FernPack\basic_funcion\Color.h" />
-    <ClInclude Include="FernPack\basic_funcion\MathUtils.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="11-Minimal_pipeline.cpp" />
+    <ClCompile Include="Ext01-isNearlyEqual_fix_test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

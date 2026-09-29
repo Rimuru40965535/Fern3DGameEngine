@@ -201,10 +201,10 @@ namespace Fern {
 		/// <returns></returns>
 		inline Matrix4x4 operator~()const {
 			// 0. 先判定最后一行是不是[0, 0, 0, 1]。如果不是，需要接入后续的完整求逆逻辑。此处着重仿射矩阵求逆。
-			if (Math::isNearlyEqual(this->values[3][0], 0.0))return Matrix4x4();
-			if (Math::isNearlyEqual(this->values[3][1], 0.0))return Matrix4x4();
-			if (Math::isNearlyEqual(this->values[3][2], 0.0))return Matrix4x4();
-			if (Math::isNearlyEqual(this->values[3][3], 1.0))return Matrix4x4();
+			if (!Math::isNearlyEqual(this->values[3][0], 0.0))return Matrix4x4();
+			if (!Math::isNearlyEqual(this->values[3][1], 0.0))return Matrix4x4();
+			if (!Math::isNearlyEqual(this->values[3][2], 0.0))return Matrix4x4();
+			if (!Math::isNearlyEqual(this->values[3][3], 1.0))return Matrix4x4();
 
 			// 1. 提取 3×3 线性部分
 			double a00 = values[0][0], a01 = values[0][1], a02 = values[0][2];

@@ -12,6 +12,7 @@
 
 顺次：
 - 访问 (https://github.com/Rimuru40965535/Fern3DGameEngine/blob/master/README.md) 读取最新的 README
+- 访问 (https://github.com/Rimuru40965535/Fern3DGameEngine/blob/master/SKILLS.md) 读取最新的 SKILLS
 - 访问 (https://github.com/Rimuru40965535/Fern3DGameEngine/blob/master/API%E9%80%9F%E6%9F%A5.md) 读取最新的 API 大全以及使用法
 - 访问 (https://github.com/Rimuru40965535/Fern3DGameEngine/blob/master/%E5%8E%9F%E7%90%86%E6%96%87%E6%A1%A3.md) 读取原理文档
 
