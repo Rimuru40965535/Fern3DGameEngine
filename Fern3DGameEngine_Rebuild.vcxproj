@@ -148,7 +148,7 @@
     <None Include="原理文档.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Ext01-isNearlyEqual_fix_test.cpp" />
+    <ClCompile Include="12-DepthBuff_test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

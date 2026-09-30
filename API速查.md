@@ -505,6 +505,11 @@ values[3][0]    values[3][1]    values[3][2]    values[3][3]
 
 ## `Perspective.h`
 
+投影矩阵生成函数。
+使用命名空间：`Fern`
+
+### `GeneratePerspectiveMatrix()`
+
 文件存储投影矩阵的生成函数
 - 参数
     - int windowWidth 窗口宽度
@@ -943,6 +948,85 @@ class Camera : public Object {
 
 ---
 ---
+
+## `DepthBuff.h`
+
+文件存储深度缓冲类的定义。  
+API 设计上，只保留对于深度缓冲类相关的方法，剥离冗余职责，实现职责单一化。  
+使用命名空间：`Fern::Render`
+
+### 宏
+
+| 名称 | 值 | 含义 |
+| :---: | :---: | :---: |
+|`DEPTHBUFF_FARTHEST_DEPTH` | 1.5 | 宏定义最远深度值 |
+
+### 深度缓冲类的属性
+
+```
+class DepthBuff {
+    protected:
+        double** buffer;    ///< 二维深度数组 buffer[y][x]
+        int width;          ///< 宽度
+        int height;         ///< 高度
+    }
+```
+
+### 深度缓冲类的方法
+
+#### `DepthBuff()`
+
+构造方法。
+- 参数
+    - const Window& 要为被传入的窗口创建一个深度缓冲。
+
+***析构函数自动执行，会将资源正确析构。***  
+***该类没有拷贝构造函数***  
+
+#### `Reset()`
+
+重设深度缓冲。  
+每一帧开始时调用，以重设深度缓冲为每一个位置均为宏定义最远。
+- 参数
+    - 无
+- 返回值
+    - 无
+
+#### `GetDepth()`
+
+深度值的getter函数。
+- 参数
+    - int x 像素x坐标
+    - int y 像素y坐标
+- 返回值
+    - 深度缓冲数组在此位置的值
+
+#### `SetDepth()`
+
+深度设置接口。  
+- 参数
+    - int x 像素x坐标
+    - int y 像素y坐标
+    - double deprh 待设定深度
+- 返回值
+    - 无
+
+#### `Width()` `Height()`
+
+数组宽度和高度的Getter方法。
+- 参数
+    - 无
+- 返回值
+    - 数组的宽度或高度
+
+---
+---
+
+
+
+
+
+
 
 
 
