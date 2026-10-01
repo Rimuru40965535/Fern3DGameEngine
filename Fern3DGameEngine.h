@@ -46,6 +46,7 @@ namespace Fern{}
 #include "FernPack/math/Perspective.h"
 
 #include "FernPack/render/Window.h"
+#include "FernPack/render/RenderTarget.h"
 
 #include "FernPack/game_object/Object.h"
 #include "FernPack/game_object/Mesh.h"
@@ -53,3 +54,5 @@ namespace Fern{}
 #include "FernPack/game_object/Camera.h"
 
 #include "FernPack/render/DepthBuff.h"
+
+#include "FernPack/render/RenderUtils.h"
