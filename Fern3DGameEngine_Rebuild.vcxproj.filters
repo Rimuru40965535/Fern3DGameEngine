@@ -29,7 +29,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="13-RenderUtils_test.cpp">
+    <ClCompile Include="Pipe01-DepthTfestCube.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
