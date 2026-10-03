@@ -148,7 +148,7 @@
     <None Include="原理文档.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Pipe01-DepthTfestCube.cpp" />
+    <ClCompile Include="Pipe02.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

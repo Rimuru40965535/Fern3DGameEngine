@@ -117,6 +117,28 @@
     - 角度制弧度制转换函数  
 
 
+### `inline double LiniarInterpolation()`
+
+线性插值函数。
+- 参数
+    - double start 起始值
+    - double end 结束值
+    - double t 插值参数
+- 返回值
+    - double 插值结果
+
+### `inline double SolveLiniarInterpolation()`
+
+解线性插值函数。
+- 参数
+    - double start 起始值
+    - double end 结束值
+    - double value 插值结果
+- 返回值
+    - double 插值参数 t
+
+
+
 ---
 ---
 
@@ -1097,6 +1119,18 @@ class DepthBuff {
 - 返回值
     - 无
 
+### `DrawLine()`
+
+直线绘制算法。  
+采用 Bresenham 算法。  
+- 参数
+    - RenderTarget* target 渲染目标
+    - DepthBuff* depthbuff 深度缓冲
+    - Vector3D start 起点
+    - Vector3D end 终点
+    - Color color 颜色
+- 返回值
+    - 无
 
 
 

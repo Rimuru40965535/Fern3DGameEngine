@@ -239,4 +239,27 @@ namespace Fern::Math {
     * @return double 角度制下角度
     */
     inline double RadToDeg(double rad) { return rad * 180.0 / PI; }
+
+    /**
+    * @brief 线性插值
+    * @param double start 起始值
+    * @param double end 结束值
+    * @param double t 插值参数，通常在 [0, 1] 范围内
+    * @return double 插值结果
+    */
+	inline double LiniarInterpolation(double start, double end, double t) {
+		return start + (end - start) * t;
+	}
+
+    /**
+    * @brief 解线性插值
+    * @param double start 起始值
+    * @param double end 结束值
+    * @param double value 目标值
+    * @return double 插值参数
+    */
+	inline double SolveLiniarInterpolation(double start, double end, double value) {
+		if (end - start == 0) return start; // 避免除以零
+		return (value - start) / (end - start);
+	}
 }

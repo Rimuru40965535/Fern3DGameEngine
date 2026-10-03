@@ -109,6 +109,21 @@ namespace Fern::Scene {
             {-1, -1,  1}, { 1, -1,  1}, { 1,  1,  1}, {-1,  1,  1}
         };
 
+        mesh.edges = {
+            {0, 1, Color::White()},
+            {0, 3, Color::White()},
+            {0, 4, Color::White()},
+            {1, 2, Color::White()},
+            {1, 5, Color::White()},
+            {2, 3, Color::White()},
+            {2, 6, Color::White()},
+            {3, 7, Color::White()},
+            {4, 5, Color::White()},
+            {4, 7, Color::White()},
+            {5, 6, Color::White()},
+            {6, 7, Color::White()}
+        };
+
         // 12 个三角形
         mesh.surfaces = {
             // 前面 (Z = -1)
