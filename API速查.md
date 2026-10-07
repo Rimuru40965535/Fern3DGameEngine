@@ -1106,6 +1106,39 @@ class DepthBuff {
 文件存储渲染算法的函数。  
 使用命名空间：`Fern::Render`  
 
+### `class ScreenVerts`
+
+屏幕坐标点。最终转换为视口坐标的结果依旧是Vector3D类的对象，需要经过化整和比较。  
+类的定义如下：
+
+```
+ struct ScreenVerts {
+        int x;
+        int y;
+        double screendepth;
+        //ScreenVerts() {}
+        ScreenVerts(const Vector3D& A) :x(A.x), y(A.y),screendepth(A.z) {}
+        bool operator<(const ScreenVerts& A) const {
+            if (this->y < A.y)return true;
+            if (this->y == A.y) {
+                if (this->x < A.x)return true;
+            }
+            return false;
+        }
+        bool operator>(const ScreenVerts& A)const {
+            if (this->y > A.y)return true;
+            if (this->y == A.y) {
+                if (this->x > A.x)return true;
+            }
+            return false;
+        }
+        bool operator==(const ScreenVerts& A) const {
+            return (this->x == A.x && this->y == A.y);
+        }
+    };
+```
+
+
 ### `DrawWithDepthTest()`
 
 带有深度测试的绘制函数。
@@ -1128,6 +1161,20 @@ class DepthBuff {
     - DepthBuff* depthbuff 深度缓冲
     - Vector3D start 起点
     - Vector3D end 终点
+    - Color color 颜色
+- 返回值
+    - 无
+
+### `FastFillTriangle()`
+
+三角形绘制算法。  
+采用扫描线算法。  
+- 参数
+    - RenderTarget* target 渲染目标
+    - DepthBuff* depthbuff 深度缓冲
+    - Vector3D& A 三角形顶点屏幕系坐标
+    - Vector3D& B 三角形顶点屏幕系坐标
+    - Vector3D& C 三角形顶点屏幕系坐标
     - Color color 颜色
 - 返回值
     - 无

@@ -72,7 +72,7 @@ namespace Fern::Render {
 
         // 2. 如果起点和终点相同，直接绘制一个点
         if (x0 == x1 && y0 == y1) {
-            DrawWithDepthTest(target, depthBuff, x0, y0, (start.z < end.z ? start.z : end.z), color);
+            DrawWithDepthTest(target, depthBuff, x0, y0, (start.z < end.z ? start.z : end.z)-0.0005, color);
             return;
         }
 
@@ -94,7 +94,7 @@ namespace Fern::Render {
         // 5. Bresenham 主循环
         while (true) {
             // 绘制当前像素（带深度测试）
-            DrawWithDepthTest(target, depthBuff, curx, cury, curdepth, color);
+            DrawWithDepthTest(target, depthBuff, curx, cury, curdepth-0.001, color);
 
             // 到达终点，退出循环
             if (curx == x1 && cury == y1) break;
@@ -115,5 +115,146 @@ namespace Fern::Render {
                 curdepth += dz;
             }
         }
+    }
+
+
+    struct ScreenVerts {
+        int x;
+        int y;
+        double screendepth;
+        //ScreenVerts() {}
+        ScreenVerts(const Vector3D& A) :x(A.x), y(A.y),screendepth(A.z) {}
+        bool operator<(const ScreenVerts& A) const {
+            if (this->y < A.y)return true;
+            if (this->y == A.y) {
+                if (this->x < A.x)return true;
+            }
+            return false;
+        }
+        bool operator>(const ScreenVerts& A)const {
+            if (this->y > A.y)return true;
+            if (this->y == A.y) {
+                if (this->x > A.x)return true;
+            }
+            return false;
+        }
+        bool operator==(const ScreenVerts& A) const {
+            return (this->x == A.x && this->y == A.y);
+        }
+    };
+
+    /// <summary>
+    /// 快速在屏幕上填充纯色三角形
+    /// </summary>
+    /// <param name="target">渲染目标</param>
+    /// <param name="depthbuff">深度缓冲</param>
+    /// <param name="A">屏幕点A</param>
+    /// <param name="B">屏幕点B</param>
+    /// <param name="C">屏幕点C</param>
+    /// <param name="color">颜色</param>
+    inline void FastFillTriangle(
+        RenderTarget* target,
+        DepthBuff* depthbuff,
+        Vector3D& A,
+        Vector3D& B,
+        Vector3D& C,
+        const Color& color
+    ) {
+
+        // 0、顶点化整
+
+        ScreenVerts screenA(A), screenB(B), screenC(C);
+
+        // 三点共线时平面会退化为直线
+        //if (screenA.x == screenB.x && screenB.x == screenC.x)return;
+        //if (screenA.y == screenB.y && screenB.y == screenC.y)return;
+        // 任意两点共点，则平面退化为直线
+        if (screenA == screenB)return;
+        if (screenB == screenC)return;
+        if (screenC == screenA)return;
+
+
+        //1、排序顶点
+        ScreenVerts* V1, *V2, *V3;
+        ScreenVerts* pLeftStart;
+        ScreenVerts* pRightStart;
+        ScreenVerts* pLeftEnd;
+        ScreenVerts* pRightEnd;
+
+        //左上角点默认y值最靠上，在y相同的时候x最靠左
+        V1 = &(screenA < screenB ? screenA : screenB);
+        V1 = (*V1 < screenC ? V1 : &screenC);
+
+        //右下角点默认y值最靠下，在y相同的时候x最靠右
+        V3 = &(screenA > screenB ? screenA : screenB);
+        V3 = (*V3 > screenC ? V3 : &screenC);
+
+        // 最后一个角点要确保和其余两个不相同，至少可以确定y轴不会超过其他两个顶点的范围。
+        V2 = &screenA;
+        if (V2 == V1 || V2 == V3)V2 = &screenB;
+        if (V2 == V1 || V2 == V3)V2 = &screenC;
+
+        //如果此时有点和左上角点y值相同，说明顶边水平，保持右上角不变即可
+        //如果此时没有点和左上角点的y值相同，说明顶边不水平
+        pLeftStart = V1;
+        if (V1->y == V2->y) {
+            pRightStart = V2;
+            pLeftEnd = V3;
+            pRightEnd = V3;
+        }
+        else {
+            pRightStart = V1;
+            pLeftEnd = (V2->x < V3->x ? V2 : V3);
+            pRightEnd = (V2->x < V3->x ? V3 : V2);
+        }
+
+
+
+        // 2、准备循环
+        int LineLeft;
+        int LineRight;
+        double LineLeftDepth;
+        double LineRightDepth;
+        double CurrentDepth;
+
+        
+
+        // 3、绘制循环
+        int y = V1->y;
+        while(1) {
+
+            LineLeft = Math::LiniarInterpolation(pLeftStart->x,pLeftEnd->x,Math::SolveLiniarInterpolation(pLeftStart->y,pLeftEnd->y,y));
+            LineRight = Math::LiniarInterpolation(pRightStart->x, pRightEnd->x, Math::SolveLiniarInterpolation(pRightStart->y, pRightEnd->y, y));
+
+            LineLeftDepth = Math::LiniarInterpolation(pLeftStart->screendepth, pLeftEnd->screendepth, Math::SolveLiniarInterpolation(pLeftStart->y, pLeftEnd->y, y));
+            LineRightDepth = Math::LiniarInterpolation(pRightStart->screendepth, pRightEnd->screendepth, Math::SolveLiniarInterpolation(pRightStart->y, pRightEnd->y, y));
+
+            if (LineLeft > LineRight) { int t = LineLeft;LineLeft = LineRight;LineRight = t; double m = LineLeftDepth;LineLeftDepth = LineRightDepth;LineRightDepth = m; }
+            
+
+            // 绘制一行
+            for (int x = LineLeft;x <= LineRight;x++) {
+
+                CurrentDepth = Math::LiniarInterpolation(LineLeftDepth, LineRightDepth, Math::SolveLiniarInterpolation(LineLeft, LineRight, x));
+                DrawWithDepthTest(target, depthbuff, x, y, CurrentDepth, color);
+
+            }
+
+            // 检查y值是否触及顶点，如果触及就替换一边的起点终点。
+            if (y == pLeftEnd->y) {//左边触及顶点
+                if (y == pRightEnd->y)break;//两边同时触及终点，要么是同一点，要么底边水平，而且V3是必然触发的，不会造成死循环。
+                pLeftStart = pLeftEnd;
+                pLeftEnd = pRightEnd;
+            }
+            else if (y == pRightEnd->y) {//只有右边触及顶点
+                pRightStart = pRightEnd;
+                pRightEnd = pLeftEnd;
+            }
+            
+            y++;
+
+            
+        }
+        
     }
 } 

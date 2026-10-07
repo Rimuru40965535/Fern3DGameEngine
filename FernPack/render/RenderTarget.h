@@ -1,11 +1,11 @@
 /**
 * @file FernPack/render/RenderTarget.h
-* @brief æ¸²æŸ“ç›®æ ‡
+* @brief äÖÈ¾Ä¿±ê
 * @details
-* æ¸²æŸ“ç›®æ ‡çš„æŠ½è±¡ï¼Œå°è£…åƒç´ ç»˜åˆ¶ã€æ¸…å±ã€å‘ˆç°ã€‚
-* æŒæœ‰çª—å£å¼•ç”¨ï¼Œæä¾›ç»˜åˆ¶æ¥å£ã€‚
+* äÖÈ¾Ä¿±êµÄ³éÏó£¬·â×°ÏñËØ»æÖÆ¡¢ÇåÆÁ¡¢³ÊÏÖ¡£
+* ³ÖÓĞ´°¿ÚÒıÓÃ£¬Ìá¹©»æÖÆ½Ó¿Ú¡£
 *
-* @author ï¼ˆç•™ç™½ï¼‰ ï¼ˆAIGCï¼šDeepSeekï¼‰
+* @author £¨Áô°×£© £¨AIGC£ºDeepSeek£©
 * @date 2026/10/1
 *
 */
@@ -14,41 +14,41 @@
 namespace Fern::Render {
 
     /**
-    * @brief æ¸²æŸ“ç›®æ ‡
+    * @brief äÖÈ¾Ä¿±ê
     * @details
-    * æ¸²æŸ“ç›®æ ‡çš„æŠ½è±¡ï¼Œå°è£…åƒç´ ç»˜åˆ¶ã€æ¸…å±ã€å‘ˆç°ã€‚
-    * æŒæœ‰çª—å£å¼•ç”¨ï¼Œæä¾›ç»˜åˆ¶æ¥å£ã€‚
+    * äÖÈ¾Ä¿±êµÄ³éÏó£¬·â×°ÏñËØ»æÖÆ¡¢ÇåÆÁ¡¢³ÊÏÖ¡£
+    * ³ÖÓĞ´°¿ÚÒıÓÃ£¬Ìá¹©»æÖÆ½Ó¿Ú¡£
     */
     class RenderTarget {
     protected:
-        Window* window;     ///< çª—å£æŒ‡é’ˆ
+        Window* window;     ///< ´°¿ÚÖ¸Õë
 
     public:
         /**
-        * @brief æ„é€ å‡½æ•°
-        * @param Window& w çª—å£å¼•ç”¨
+        * @brief ¹¹Ôìº¯Êı
+        * @param Window& w ´°¿ÚÒıÓÃ
         */
         RenderTarget(Window& w) : window(&w) {}
 
         /**
-        * @brief æ¸…é™¤å±å¹•
+        * @brief Çå³ıÆÁÄ»
         */
         void Clear() {
             window->Clear();
         }
 
         /**
-        * @brief äº¤æ¢ç¼“å†²åŒº
+        * @brief ½»»»»º³åÇø
         */
         void Present() {
             window->Present();
         }
 
         /**
-        * @brief ç»˜åˆ¶åƒç´ 
-        * @param int x åƒç´  x åæ ‡
-        * @param int y åƒç´  y åæ ‡
-        * @param Color é¢œè‰²
+        * @brief »æÖÆÏñËØ
+        * @param int x ÏñËØ x ×ø±ê
+        * @param int y ÏñËØ y ×ø±ê
+        * @param Color ÑÕÉ«
         */
         void DrawPixel(int x, int y, const Color& color) {
             if (x < 0 || x >= window->Width()) return;

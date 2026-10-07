@@ -110,9 +110,9 @@ namespace Fern::Scene {
         };
 
         mesh.edges = {
-            {0, 1, Color::White()},
-            {0, 3, Color::White()},
-            {0, 4, Color::White()},
+            {0, 1, Color::Red()},
+            {0, 3, Color::Green()},
+            {0, 4, Color::Blue()},
             {1, 2, Color::White()},
             {1, 5, Color::White()},
             {2, 3, Color::White()},
