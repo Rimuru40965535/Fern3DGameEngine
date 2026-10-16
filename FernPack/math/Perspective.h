@@ -6,7 +6,8 @@
 * 相机空间定义：+X 左，+Y 上，+Z 前（右手系）。
 * NDC 空间定义：x/y 范围 [-1, 1]，z 范围 [0, 1]。
 *
-* @author 半人马座beta星（AIGC：DeepSeek）
+* 文档中有我自己的完全独立的推导过程
+* @author 半人马座beta星 
 * @date 2026/9/28
 *
 */
@@ -14,15 +15,15 @@
 #pragma once
 
 namespace Fern {
-	/// <summary>
-	/// 生成投影矩阵
-	/// </summary>
-	/// <param name="windowWidth">窗口宽度</param>
-	/// <param name="windowHeight">窗口高度</param>
-	/// <param name="fov_radius">弧度制fov</param>
-	/// <param name="near_plane_z">近平面z值</param>
-	/// <param name="far_plane_z">远平面z值</param>
-	/// <returns></returns>
+	/**
+	* @brief 生成投影矩阵
+	* @param int windowWidth 窗口宽度
+	* @param int windowHeight 窗口高度
+	* @param double fov_radius 弧度制fov
+	* @param double near_plane_z 近平面z值
+	* @param double far_plane_z 远平面z值
+	* @returns 投影矩阵
+	*/
 	inline Matrix4x4 GeneratePerspectiveMatrix(int windowWidth, int windowHeight, double fov_radius, double near_plane_z, double far_plane_z) {
 
 		if (near_plane_z < 0) return Matrix4x4();

@@ -4,6 +4,8 @@
 * @details 
 * 在这个文件里我想把物体基类单独放好。
 * 其他文件放的宏定义放到后面就可以直接继承这一个类。
+* @author 半人马座beta星
+* 
 */
 
 #pragma once
@@ -12,12 +14,12 @@ namespace Fern::Scene {
     
     class Object {
     protected:
-        Vector3D position;      ///< 位置
-        Vector3D rotation;      ///< 旋转（欧拉角，弧度制）
-        Vector3D scale;         ///< 缩放
+        Vector3D position;      // 位置
+        Vector3D rotation;      // 旋转（欧拉角，弧度制）
+        Vector3D scale;         // 缩放
         
-        Matrix4x4 modelMatrix;  ///< 模型矩阵（模型空间 → 世界空间）
-        bool dirty;             ///< 脏标记，是否需要重新计算模型矩阵
+        Matrix4x4 modelMatrix;  // 模型矩阵（模型空间 → 世界空间）
+        bool dirty;             // 脏标记，是否需要重新计算模型矩阵
 
     public:
         /**

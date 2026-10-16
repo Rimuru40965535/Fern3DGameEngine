@@ -4,7 +4,8 @@
 * @details
 * 存放渲染管线的各个算法实现，作为纯函数供渲染调度器调用。
 *
-* @author 半人马座beta星 （AIGC：DeepSeek）
+* 文档中有详细的原理实现、设计取舍（除部分函数）
+* @author 半人马座beta星 (AIGC:DeepSeek)
 * @date 2026/10/1
 *
 */
@@ -45,6 +46,7 @@ namespace Fern::Render {
     * @details
     * 使用 Bresenham 算法绘制直线，并为每个像素插值深度。
     * 通过深度测试决定像素是否被绘制。
+    * 该算法由DeepSeek生成。未来在记录原理之后计划重写该函数并使用现有单元测试源文件测试。
     *
     * @param RenderTarget* target 渲染目标
     * @param DepthBuff* depthBuff 深度缓冲
@@ -117,7 +119,10 @@ namespace Fern::Render {
         }
     }
 
-
+    /**
+    * @brief 屏幕顶点
+    * @details 顶点封装为数据体，一可以隐式调用构造函数化整，二便于指针在扫描线算法中指向顶点整体，防止顶点错乱
+    */
     struct ScreenVerts {
         int x;
         int y;
@@ -143,15 +148,18 @@ namespace Fern::Render {
         }
     };
 
-    /// <summary>
-    /// 快速在屏幕上填充纯色三角形
-    /// </summary>
-    /// <param name="target">渲染目标</param>
-    /// <param name="depthbuff">深度缓冲</param>
-    /// <param name="A">屏幕点A</param>
-    /// <param name="B">屏幕点B</param>
-    /// <param name="C">屏幕点C</param>
-    /// <param name="color">颜色</param>
+    /**
+    * @brief 快速在屏幕上填充纯色三角形
+    * @details
+    * 采用扫描线算法，快速在屏幕上绘制三角形投影
+    *
+    * @param RenderTarget* target 渲染目标
+    * @param DepthBuff* depthbuff 深度缓冲
+    * @param Vector3D A 屏幕点A
+    * @param Vector3D B 屏幕点B
+    * @param Vector3D C 屏幕点C
+    * @param Color color 直线颜色
+    */
     inline void FastFillTriangle(
         RenderTarget* target,
         DepthBuff* depthbuff,

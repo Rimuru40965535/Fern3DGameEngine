@@ -3,8 +3,8 @@
 * @brief 网格单元测试
 * @details
 * 验证 Mesh 类的顶点、边、面列表，以及法向量的计算。
-*
-* @author 半人马座beta星 （AIGC：DeepSeek）
+* 本文件为DeepSeek阅读代码以后独立生成的单元测试文件。
+* @author DeepSeek
 * @date 2026/9/28
 *
 */

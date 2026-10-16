@@ -3,8 +3,8 @@
 * @brief 相机单元测试
 * @details
 * 验证 Camera 类的构造、投影参数访问、观察矩阵、投影矩阵，以及多态行为。
-*
-* @author 半人马座beta星 （AIGC：DeepSeek）
+* 本文件为DeepSeek阅读代码以后独立生成的单元测试文件。
+* @author DeepSeek
 * @date 2026/9/28
 *
 */

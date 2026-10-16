@@ -9,8 +9,7 @@
 #pragma once
 
 /***
-* @brief 此命名空间用于封装Fern3DGameEngine的所有功能和类。我说菲伦是十七岁的妈妈有没有懂的。
-* 
+* @brief 此命名空间用于封装Fern3DGameEngine的所有功能和类。
 */
 namespace Fern{}
 

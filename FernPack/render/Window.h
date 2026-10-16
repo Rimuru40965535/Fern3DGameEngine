@@ -9,7 +9,6 @@
  *
  *
  * @author 半人马座beta星
- * @copyright Copyright (c) 2026 Rimuru Central Institute of Computer Science. All rights reserved.
  * @date 2026/7/22
  */
 
@@ -21,21 +20,21 @@ namespace Fern {
 
     class Window {
     public:
-        int width;             ///<窗口宽度
-        int height;            ///<窗口高度
-        std::string title;     ///<窗口标题
-        bool isOpen;           ///<是否打开
+        int width;             //窗口宽度
+        int height;            //窗口高度
+        std::string title;     //窗口标题
+        bool isOpen;           //是否打开
 
-        HWND windowHwnd;       ///<窗口句柄
+        HWND windowHwnd;       //窗口句柄
 
-        Matrix4x4 windowMatrix; ///<视窗变换矩阵
+        Matrix4x4 windowMatrix; //视窗变换矩阵
 
     public:
         /**
         * @brief 构造函数还有一个作用就是自动创建窗口
-        * @param int width 窗口宽度
-        * @param int height 窗口高度
-        * @param const:std::string& title 窗口标题
+        * @param int w 窗口宽度
+        * @param int h 窗口高度
+        * @param const:std::string& t 窗口标题
         * @param int flag eazyx的窗口控制位
         */
         Window(int w, int h, const std::string& t, int flag = 0)
@@ -107,23 +106,24 @@ namespace Fern {
         }
 
        
-        int Width() const { return width; }        ///>获取窗口宽度
-        int Height() const { return height; }      ///>获取窗口高度
+        int Width() const { return width; }        //获取窗口宽度
+        int Height() const { return height; }      //获取窗口高度
 
-        Window(const Window&) = delete;             ///>禁止拷贝（窗口对象不应被复制）
-        Window& operator=(const Window&) = delete;  ///>禁止赋值（窗口对象不应被赋值）
+        Window(const Window&) = delete;             //禁止拷贝（窗口对象不应被复制）
+        Window& operator=(const Window&) = delete;  //禁止赋值（窗口对象不应被赋值）
 
         // 提供一个方法让 EasyX 的绘图函数可以访问窗口句柄（如果需要）
         // 对于我们的软渲染器，我们不需要直接暴露 HWND
 
 
-        /// <summary>
-        /// 逐像素控制
-        /// </summary>
-        /// <param name="x">绘制坐标</param>
-        /// <param name="y">绘制坐标</param>
-        /// <param name="c">绘制颜色</param>
-        /// <returns></returns>
+        /**
+        * @brief 逐像素控制
+        * 
+        * @param int x 像素x坐标
+        * @param int x 像素x坐标
+        * @param Color c 绘制颜色
+        * @returns 绘制状态
+        */
         int DrawPixel(int x, int y, Color c)const {
             if (x < 0) { return -1; }
             if (x >= width) { return -1; }

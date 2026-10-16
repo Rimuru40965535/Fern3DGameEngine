@@ -2,8 +2,9 @@
 * @file 04-Inverse_test.cpp
 * @brief 仿射矩阵求逆测试
 * @datail
-* 
-* @author 半人马座beta星
+* 本文件为DeepSeek阅读代码以后独立生成的单元测试文件。
+* 虽然我学过线性代数，但是这份代码的框架不是我手敲的。
+* @author DeepSeek
 * @date 2026.9.26
 * 
 */

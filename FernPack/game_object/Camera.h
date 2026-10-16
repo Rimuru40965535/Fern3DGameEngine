@@ -7,7 +7,8 @@
 * 投影矩阵由视场角、宽高比、近平面、远平面决定。
 * 相机空间：+X 左，+Y 上，+Z 前（右手系）。
 *
-* @author （留白） （AIGC：DeepSeek）
+* 文档里面由完整的原理实现和设计取舍
+* @author 半人马座beta星
 * @date 2026/9/28
 *
 */
@@ -24,9 +25,9 @@ namespace Fern::Scene {
     */
     class Camera : public Object {
     protected:
-        double fov;             ///< 视场角（弧度）
-        double nearPlane;       ///< 近平面
-        double farPlane;        ///< 远平面
+        double fov;             // 视场角（弧度）
+        double nearPlane;       // 近平面
+        double farPlane;        // 远平面
 
     public:
         /**
@@ -44,7 +45,6 @@ namespace Fern::Scene {
         /**
         * @brief 带参构造函数
         * @param double f 视场角（弧度）
-        * @param double a 宽高比
         * @param double n 近平面
         * @param double f2 远平面
         */

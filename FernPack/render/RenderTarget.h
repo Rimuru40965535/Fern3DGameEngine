@@ -5,7 +5,8 @@
 * 渲染目标的抽象，封装像素绘制、清屏、呈现。
 * 持有窗口引用，提供绘制接口。
 *
-* @author （留白） （AIGC：DeepSeek）
+* 该类有明确的设计职责：解耦渲染和窗口
+* @author 半人马座beta星
 * @date 2026/10/1
 *
 */
@@ -48,7 +49,7 @@ namespace Fern::Render {
         * @brief 绘制像素
         * @param int x 像素 x 坐标
         * @param int y 像素 y 坐标
-        * @param Color 颜色
+        * @param Color c 颜色
         */
         void DrawPixel(int x, int y, const Color& color) {
             if (x < 0 || x >= window->Width()) return;

@@ -3,8 +3,8 @@
 * @brief 渲染工具单元测试
 * @details
 * 验证 RenderTarget 类和 DrawWithDepthTest 函数的正确性。
-*
-* @author （留白） （AIGC：DeepSeek）
+* 本文件为DeepSeek阅读代码以后独立生成的单元测试文件。
+* @author DeepSeek
 * @date 2026/10/1
 *
 */

@@ -2,8 +2,10 @@
 * @file 03--Rainbow_Window.cpp
 * @brief 彩虹窗口
 * @detail
-* 
-* @author 半人马座beta星
+* 本文件为DeepSeek阅读代码以后独立生成的单元测试文件。
+* 我不通晓色彩原理，所以委托DeepSeek实现了核心转换。
+* 文件用于验证 putpixel 被正确封装并调用。
+* @author DeepSeek
 * @date 2026.7.16
 */
 

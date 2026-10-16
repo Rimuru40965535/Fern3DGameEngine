@@ -5,8 +5,9 @@
 * 管理一个二维 double 数组，记录每个像素位置的最小深度值。
 * 每帧开始时需要重置为最远值。
 * 提供遮挡测试的判据：当前深度是否小于缓冲中的深度。
-*
-* @author 半人马座beta星（AIGC：DeepSeek）
+* 
+* 在文档中有详细原理、定义与设计取舍
+* @author 半人马座beta星
 * @date 2026/10/1
 *
 */
@@ -33,7 +34,6 @@ namespace Fern::Render {
         /**
         * @brief 构造函数
         * @param Window& w 窗口引用，用于读取宽高
-        * @param double far 最远值，默认为 1.0
         */
         DepthBuff(const Window& w)
             : width(w.Width()), height(w.Height())

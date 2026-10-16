@@ -3,8 +3,8 @@
 * @brief 可渲染物体单元测试
 * @details
 * 验证 RenderObject 类的构造、网格访问、颜色访问、可见性，以及多态行为。
-*
-* @author （留白） （AIGC：DeepSeek）
+* 本文件为DeepSeek阅读代码以后独立生成的单元测试文件。
+* @author DeepSeek
 * @date 2026/9/28
 *
 */

@@ -4,8 +4,8 @@
 * @details
 * 验证从顶点变换到光栅化的完整流程。
 * 暂不包含深度测试和近平面裁剪。
-*
-* @author （留白） （AIGC：DeepSeek）
+* 本文件为DeepSeek阅读代码以后独立生成的单元测试文件。
+* @author DeepSeek
 * @date 2026/9/28
 *
 */

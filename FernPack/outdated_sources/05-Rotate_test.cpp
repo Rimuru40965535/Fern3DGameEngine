@@ -2,7 +2,8 @@
 * @file 05-RotateTest.cpp
 * @brief 矩阵转置测试
 * 
-* @author 半人马座beta星
+* 本文件为DeepSeek阅读代码以后独立生成的单元测试文件。
+* @author DeepSeek
 * @date 2026-9-27
 */
 #include "Fern3DGameEngine.h"

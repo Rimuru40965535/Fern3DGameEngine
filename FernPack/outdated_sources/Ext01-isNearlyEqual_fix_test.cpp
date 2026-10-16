@@ -6,8 +6,9 @@
 * - Vector3D::operator==
 * - Matrix4x4::operator~
 * - Matrix4x4::operator*
-*
-* @author （留白） （AIGC：DeepSeek）
+* 
+* 本文件为DeepSeek阅读代码以后独立生成的单元测试文件。
+* @author DeepSeek
 * @date 2026/9/30
 *
 */

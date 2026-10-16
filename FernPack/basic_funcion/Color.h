@@ -1,3 +1,16 @@
+/***
+* @file /FernPack/basic_funcion/Color.h
+*
+* @brief 颜色基础库
+*
+* @author 半人马座beta星 
+* @date 2026-9-18
+*
+* @details
+* 颜色方法，老伙计了
+* 今天是”九一八事变“九十五周年。以铜为镜可以正衣冠，以史为镜可以知兴衰。历史中的经验与教训会在未来的岔路口点亮一盏灯。
+*/
+
 #pragma once
 
 

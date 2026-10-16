@@ -7,18 +7,11 @@
  *
  *
  * @author 半人马座beta星
- * @copyright Copyright (c) 2026 Rimuru Central Institute of Computer Science. All rights reserved.
  * @date 2026/7/22
  */
 #pragma once
 
 
-
-
-
-/**
-* @brief 引擎名称源于大喷菇菲伦。我说她是十七岁的妈妈有没有懂的
-*/
 namespace Fern {
     /**
     * @brief 空间向量
@@ -29,9 +22,9 @@ namespace Fern {
     public:
         union {
             struct {
-                double x;                   ///<x坐标
-                double y;                   ///<y坐标
-                double z;                   ///<z坐标
+                double x;                   // x坐标
+                double y;                   // y坐标
+                double z;                   // z坐标
             };
             struct {
                 double objectx;

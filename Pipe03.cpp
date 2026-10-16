@@ -3,8 +3,9 @@
 * @brief 三角形填充算法联调测试
 * @details
 * 使用 FastFillTriangle 渲染一个旋转的纯色实体立方体。
-*
-* @author （留白） （AIGC：DeepSeek）
+* 本文件为DeepSeek阅读代码以后独立生成的测试文件。
+* 在这个文件中我需要把渲染管线的各个组分排列好，未来自己实现多线程的时候在那里组装。
+* @author DeepSeek
 * @date 2026/10/6
 *
 */

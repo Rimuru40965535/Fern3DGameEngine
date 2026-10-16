@@ -2,8 +2,8 @@
 * @file 06-Object-test.cpp
 * @brief 物体基类单元测试
 * @details
-* 
-* @author 半人马座beta星 （AIGC：DeepSeek）
+* 本文件为DeepSeek阅读代码以后独立生成的单元测试文件。
+* @author DeepSeek
 * @date 2026-9-28
 * 
 */

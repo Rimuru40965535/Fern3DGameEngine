@@ -3,8 +3,9 @@
 * @brief 直线绘制联调测试
 * @details
 * 使用 DrawLine 渲染一个旋转的立方体线框。
-*
-* @author （留白） （AIGC：DeepSeek）
+* 本文件为DeepSeek阅读代码以后独立生成的测试文件。
+* 只保证算法可以运行，未来重构直线绘制算法的时候，还需要这个文件做测试。
+* @author DeepSeek
 * @date 2026/10/3
 *
 */

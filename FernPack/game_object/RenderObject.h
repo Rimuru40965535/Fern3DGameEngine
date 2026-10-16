@@ -5,7 +5,8 @@
 * 继承自 Object，额外持有一个 Mesh 指针和颜色。
 * 同一个 Mesh 可以被多个 RenderObject 共享。
 *
-* @author 半人马座beta星（AIGC：DeepSeek）
+* 文档中有详细的设计取舍。
+* @author 半人马座beta星
 * @date 2026/9/28
 *
 */
@@ -21,9 +22,9 @@ namespace Fern::Scene {
     */
     class RenderObject : public Object {
     protected:
-        Mesh* mesh;         ///< 指向网格数据（可共享）
-        Color color;        ///< 物体的颜色
-        bool visible;       ///< 是否可见
+        Mesh* mesh;         // 指向网格数据（可共享）
+        Color color;        // 物体的颜色
+        bool visible;       // 是否可见
 
     public:
         /**

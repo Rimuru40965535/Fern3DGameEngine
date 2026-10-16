@@ -5,7 +5,8 @@
 * 定义纯几何数据的容器，包含顶点、边、面。
 * 面中预存法向量，便于背面剔除和光照计算。
 *
-* @author 半人马座beta星（AIGC：DeepSeek）
+* 生成立方体的测试网格函数由 AI 生成。其功能较为完整，为后续渲染所使用的测试渲染网格。
+* @author 半人马座beta星 （AIGC：DeepSeek）
 * @date 2026/9/28
 *
 */
@@ -21,12 +22,12 @@ namespace Fern::Scene {
     struct Edge {
         union {
             struct {
-                int verticeStart;       ///< 起始点索引
-                int verticeEnd;         ///< 终止点索引
+                int verticeStart;       // 起始点索引
+                int verticeEnd;         // 终止点索引
             };
-            int vertices[2];            ///< 数组形式的属性
+            int vertices[2];            // 数组形式的属性
         };
-        Color color;                    ///< 边的颜色
+        Color color;                    // 边的颜色
 
         Edge(int start, int end, Color c)
             : verticeStart(start), verticeEnd(end), color(c) {
@@ -42,14 +43,14 @@ namespace Fern::Scene {
     struct Surface {
         union {
             struct {
-                int verticeA;           ///< 顶点A索引
-                int verticeB;           ///< 顶点B索引
-                int verticeC;           ///< 顶点C索引
+                int verticeA;           // 顶点A索引
+                int verticeB;           // 顶点B索引
+                int verticeC;           // 顶点C索引
             };
-            int vertices[3];            ///< 数组形式的属性
+            int vertices[3];            // 数组形式的属性
         };
-        Vector3D normal;                ///< 法向量
-        Color color;                    ///< 面的颜色
+        Vector3D normal;                // 法向量
+        Color color;                    // 面的颜色
 
         Surface(int A, int B, int C, Color c)
             : verticeA(A), verticeB(B), verticeC(C), color(c) {
@@ -68,9 +69,9 @@ namespace Fern::Scene {
     */
     class Mesh {
     public:
-        std::vector<Vector3D> vertices;   ///< 顶点列表
-        std::vector<Edge> edges;          ///< 边列表
-        std::vector<Surface> surfaces;    ///< 面列表
+        std::vector<Vector3D> vertices;   // 顶点列表
+        std::vector<Edge> edges;          // 边列表
+        std::vector<Surface> surfaces;    // 面列表
 
         /**
         * @brief 默认构造函数

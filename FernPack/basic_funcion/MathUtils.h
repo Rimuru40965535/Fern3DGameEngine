@@ -1,49 +1,48 @@
-ï»¿/***
+/***
 * @file /FernPack/basic_funcion/MathUtils.h
 * 
-* @brief æ•°å­¦è¿ç®—åŸºç¡€åº“
+* @brief ÊıÑ§ÔËËã»ù´¡¿â
 * 
-* @author åŠäººé©¬åº§betaæ˜Ÿ
+* @author °ëÈËÂí×ùbetaĞÇ (AIGC:DeepSeek)
 * @date 2026-9-18
 * 
 * @details
-* è¿™ä¸ªæ¨¡å—é‡Œé¢æ˜¯å„ç§æ•°å­¦è¿ç®—çš„åº“ã€‚
-* æˆ‘å¸Œæœ›è‡ªå·±å®ç°ç®—æ³•ï¼Œå®Œæˆæ•°å­¦è¿ç®—ã€‚ä»è¿™ä¸ªè¿‡ç¨‹ä¸­æˆ‘å¸Œæœ›å¯ä»¥å­¦ä¹ ä¸€äº›éå¸¸ç²¾å¦™ã€å®ç”¨çš„ç®—æ³•æ„æ€ä¸å®ç°æŠ€å·§
+* Õâ¸öÄ£¿éÀïÃæÊÇ¸÷ÖÖÊıÑ§ÔËËãµÄ¿â¡£
+* ÎÒÏ£Íû×Ô¼ºÊµÏÖËã·¨£¬Íê³ÉÊıÑ§ÔËËã¡£´ÓÕâ¸ö¹ı³ÌÖĞÎÒÏ£Íû¿ÉÒÔÑ§Ï°Ò»Ğ©·Ç³£¾«Ãî¡¢ÊµÓÃµÄËã·¨¹¹Ë¼ÓëÊµÏÖ¼¼ÇÉ
 * 
-* ä»Šå¤©æ˜¯â€ä¹ä¸€å…«äº‹å˜â€œä¹åäº”å‘¨å¹´ã€‚ä»¥é“œä¸ºé•œå¯ä»¥æ­£è¡£å† ï¼Œä»¥å²ä¸ºé•œå¯ä»¥çŸ¥å…´è¡°ã€‚å†å²ä¸­çš„ç»éªŒä¸æ•™è®­ä¼šåœ¨æœªæ¥çš„å²”è·¯å£ç‚¹äº®ä¸€ç›ç¯ã€‚
+* ½ñÌìÊÇ¡±¾ÅÒ»°ËÊÂ±ä¡°¾ÅÊ®ÎåÖÜÄê¡£ÒÔÍ­Îª¾µ¿ÉÒÔÕıÒÂ¹Ú£¬ÒÔÊ·Îª¾µ¿ÉÒÔÖªĞËË¥¡£ÀúÊ·ÖĞµÄ¾­ÑéÓë½ÌÑµ»áÔÚÎ´À´µÄ²íÂ·¿ÚµãÁÁÒ»ÕµµÆ¡£
 */
 #pragma once
 
 
 namespace Fern::Math {
 
-	/// <summary>
-	/// å¸¸é‡å®šä¹‰å–µ
-	/// </summary>
-   
+
+    //³£Á¿¶¨Òå
 	const double PIHALF = 1.57079632679489661923;          
 	const double PI = 3.14159265358979323846;               
 	const double TAU = 6.28318530717958647692;              
 
 
-	/// <summary>
-	/// åˆ¤æ–­ä¸¤æ•°æ˜¯å¦ç›¸ç­‰å–µ
-	/// </summary>
-	/// <param name="A">å¾…åˆ¤æ–­æ•°</param>
-	/// <param name="B">å¾…åˆ¤æ–­æ•°</param>
-	/// <param name="prisicion">ç›¸ç­‰é˜ˆå€¼</param>
-	/// <returns>ä¸¤æ•°ç›¸ç­‰ä¸ºtrue</returns>
-	inline bool isNearlyEqual(double A, double B, double prisicion = 1e-6) {
-        return (A - B < prisicion && B - A < prisicion);
+	/**
+    * @brief ÅĞ¶ÏÁ½ÊıÊÇ·ñÏàµÈ
+    * @param double A
+    * @param double B ´ıÅĞ¶ÏÊı
+    * @param double pricision ÅĞ¶Ï¾«¶È
+    * @returns Á½ÊıÏàµÈ·µ»Øtrue
+    */
+	inline bool isNearlyEqual(double A, double B, double pricision = 1e-6) {
+        return (A - B < pricision && B - A < pricision);
 	}
 
-	/// <summary>
-	/// å¿«é€Ÿå¹³æ–¹æ ¹å€’æ•°å–µ
-	/// çµæ„Ÿæ¥æºäºé›·ç¥ä¹‹é”¤çš„æµ®ç‚¹å¿«é€Ÿå¹³æ–¹æ ¹å€’æ•°å–µ
-	/// äºæ˜¯æˆ‘å« AI ç”Ÿæˆäº†é€‚é…åŒç²¾åº¦ç‰ˆæœ¬çš„ç®—æ³•å–µ
-	/// </summary>
-	/// <param name="number">å¾…å¼€æ–¹æ•°</param>
-	/// <returns></returns>
+
+    /**
+    * @brief ¿ìËÙÆ½·½¸ùµ¹Êı
+	* Áé¸ĞÀ´Ô´ÓÚÅ¼È»Ë¢µ½µÄÀ×ÉñÖ®´¸µÄ¸¡µã¿ìËÙÆ½·½¸ùµ¹Êı
+	* ÓÚÊÇÎÒ½Ğ AI Éú³ÉÁËÊÊÅäË«¾«¶È°æ±¾µÄËã·¨
+    * @param double number ´ı´¦ÀíÊı
+    * @returns Í¨³£ÊÇ´¦Àí½á¹û£¬µ«ÊÇ´«¸ºÊı»á³öÏÖ-1
+    */
 	inline static double Q_rsqrt_double(double number) {
 		if (number < 0) {
 			return -1;
@@ -53,23 +52,23 @@ namespace Fern::Math {
 
 		x2 = number * 0.5;
 		y = number;
-		i = *(long long*)&y;                    // ä½¿ç”¨64ä½æ•´æ•°ç±»å‹
-		i = 0x5fe6eb50c7b537a9 - (i >> 1);      // doubleç‰ˆçš„é­”æ³•æ•°å­—
-		y = *(double*)&i;                       // è½¬å›åŒç²¾åº¦æµ®ç‚¹æ•°
+		i = *(long long*)&y;                    // Ê¹ÓÃ64Î»ÕûÊıÀàĞÍ
+		i = 0x5fe6eb50c7b537a9 - (i >> 1);      // double°æµÄÄ§·¨Êı×Ö
+		y = *(double*)&i;                       // ×ª»ØË«¾«¶È¸¡µãÊı
 
-		// doubleç²¾åº¦è¦æ±‚é«˜ï¼Œé€šå¸¸éœ€è¦2-3æ¬¡ç‰›é¡¿è¿­ä»£
-		y = y * (1.5 - (x2 * y * y));  // ç¬¬ä¸€æ¬¡è¿­ä»£
-		y = y * (1.5 - (x2 * y * y));  // ç¬¬äºŒæ¬¡è¿­ä»£
-		y = y * (1.5 - (x2 * y * y));  // ç¬¬ä¸‰æ¬¡è¿­ä»£
+		// double¾«¶ÈÒªÇó¸ß£¬Í¨³£ĞèÒª2-3´ÎÅ£¶Ùµü´ú
+		y = y * (1.5 - (x2 * y * y));  // µÚÒ»´Îµü´ú
+		y = y * (1.5 - (x2 * y * y));  // µÚ¶ş´Îµü´ú
+		y = y * (1.5 - (x2 * y * y));  // µÚÈı´Îµü´ú
 
 		return y;
 	}
 
-	/// <summary>
-	/// é˜¶ä¹˜å‡½æ•°å–µ
-	/// </summary>
-	/// <param name="x_int">è¾“å…¥ä½ è¦ç®—è°çš„é˜¶ä¹˜</param>
-	/// <returns>ç®—å¥½äº†æ‹¿ç»™ä½ </returns>
+    /**
+    * @brief ½×³Ëº¯Êı
+    * @param int x_int ÊäÈëÄãÒªËãË­µÄ½×³Ë
+    * @returns ËãºÃÁËÄÃ¸øÄã
+    */
 	inline double Factoriaal(int x_int) {
 		switch (x_int) {
 		default:    return 0;
@@ -102,29 +101,29 @@ namespace Fern::Math {
 	}
 
     /**
-    * @brief ä½™å¼¦å‡½æ•°ï¼Œé€‚é…å°è§’åº¦ã€‚
+    * @brief ÓàÏÒº¯Êı£¬ÊÊÅäĞ¡½Ç¶È¡£
     * @details
-    * å‡½æ•°è¿›è¡Œä½™å¼¦å€¼å…·ä½“è®¡ç®—ã€‚é€‚é…è§’åº¦ä¸º[0, Fern::Math::PIHALF]
-    * @param double x å¼§åº¦åˆ¶è§’åº¦
-    * @param int terms = 6 è¿­ä»£è®¡ç®—é¡¹æ•°ï¼Œé»˜è®¤6é¡¹ç²¾åº¦å·²ç»è¶³å¤Ÿã€‚
-    * @return double å‚æ•°xçš„ä½™å¼¦å€¼
+    * º¯Êı½øĞĞÓàÏÒÖµ¾ßÌå¼ÆËã¡£ÊÊÅä½Ç¶ÈÎª[0, Fern::Math::PIHALF]
+    * @param double x »¡¶ÈÖÆ½Ç¶È
+    * @param int terms = 6 µü´ú¼ÆËãÏîÊı£¬Ä¬ÈÏ6Ïî¾«¶ÈÒÑ¾­×ã¹»¡£
+    * @return double ²ÎÊıxµÄÓàÏÒÖµ
     */
     inline double CosineSmall(double x, int terms = 6) {
-        double result = 1.0;  // n=0 é¡¹
+        double result = 1.0;  // n=0 Ïî
         double term = 1.0;
         double x2 = x * x;
 
         for (int n = 1; n <= terms; n++) {
-            // é€’æ¨ï¼šterm = x^(2n) / (2n)!
+            // µİÍÆ£ºterm = x^(2n) / (2n)!
             term *= x2;
-            term /= (2 * n - 1) * (2 * n);  // é™¤ä»¥ (2n-1)*(2n)
+            term /= (2 * n - 1) * (2 * n);  // ³ıÒÔ (2n-1)*(2n)
 
             // (-1)^n
             if (n % 2 == 1) {
-                result -= term;  // n=1,3,5... è´Ÿå·
+                result -= term;  // n=1,3,5... ¸ººÅ
             }
             else {
-                result += term;  // n=2,4,6... æ­£å·
+                result += term;  // n=2,4,6... ÕıºÅ
             }
         }
 
@@ -132,34 +131,34 @@ namespace Fern::Math {
     }
 
     /**
-        * @brief ä½™å¼¦å‡½æ•°ï¼Œé€‚é…å…¨å®æ•°ã€‚
+        * @brief ÓàÏÒº¯Êı£¬ÊÊÅäÈ«ÊµÊı¡£
         * @details
-        * å‡½æ•°åªè¿›è¡Œè§’åº¦çš„è§„çº¦ã€‚å…·ä½“è®¡ç®—ä¾ç„¶éœ€è¦double CosineSmall(double, int)
+        * º¯ÊıÖ»½øĞĞ½Ç¶ÈµÄ¹æÔ¼¡£¾ßÌå¼ÆËãÒÀÈ»ĞèÒªdouble CosineSmall(double, int)
         * @param double x
-        * @param int terms = 6 è¿­ä»£è®¡ç®—é¡¹æ•°ï¼Œé»˜è®¤6é¡¹ç²¾åº¦å·²ç»è¶³å¤Ÿã€‚
-        * @return double å‚æ•°xçš„ä½™å¼¦å€¼
+        * @param int terms = 6 µü´ú¼ÆËãÏîÊı£¬Ä¬ÈÏ6Ïî¾«¶ÈÒÑ¾­×ã¹»¡£
+        * @return double ²ÎÊıxµÄÓàÏÒÖµ
         */
     inline double Cosine(double x, int terms = 6) {
-        // 1. è§’åº¦å½’çº¦
+        // 1. ½Ç¶È¹éÔ¼
         if (x < 0) x = -x;              // cos(-x) = cos(x)
-        while (x > TAU) { x -= TAU; }   // cos(x + 2Ï€) = cos(x)
-        if (x > PI) { x = TAU - x; }   // cos(2Ï€ - x) = cos(x)
-        if (x > PIHALF) { return -CosineSmall(PI - x, terms); }// cos(Ï€ - x) = -cos(x)
+        while (x > TAU) { x -= TAU; }   // cos(x + 2¦Ğ) = cos(x)
+        if (x > PI) { x = TAU - x; }   // cos(2¦Ğ - x) = cos(x)
+        if (x > PIHALF) { return -CosineSmall(PI - x, terms); }// cos(¦Ğ - x) = -cos(x)
         return CosineSmall(x, terms);
     }
 
     
 
     /**
-    * @brief æ­£å¼¦å‡½æ•°ï¼Œé€‚é…å…¨å®æ•°ã€‚
+    * @brief ÕıÏÒº¯Êı£¬ÊÊÅäÈ«ÊµÊı¡£
     * @details
-    * ä¸ä½™å¼¦å‡½æ•°ä¸åŒï¼Œæ­£å¼¦å‡½æ•°çš„å®ç°è¢«æµ“ç¼©åœ¨ä¸€ä¸ªå‡½æ•°ä¹‹ä¸­
-    * @param double x å¼§åº¦åˆ¶è§’åº¦
-    * @param int terms = 6 è¿­ä»£è®¡ç®—é¡¹æ•°ï¼Œé»˜è®¤6é¡¹ç²¾åº¦å·²ç»è¶³å¤Ÿã€‚
-    * @return double å‚æ•°xçš„æ­£å¼¦å€¼
+    * ÓëÓàÏÒº¯Êı²»Í¬£¬ÕıÏÒº¯ÊıµÄÊµÏÖ±»Å¨ËõÔÚÒ»¸öº¯ÊıÖ®ÖĞ
+    * @param double x »¡¶ÈÖÆ½Ç¶È
+    * @param int terms = 6 µü´ú¼ÆËãÏîÊı£¬Ä¬ÈÏ6Ïî¾«¶ÈÒÑ¾­×ã¹»¡£
+    * @return double ²ÎÊıxµÄÕıÏÒÖµ
     */
     inline double Sine(double x, int terms = 6) {
-        // ========== ç¬¬ä¸€æ­¥ï¼šè§’åº¦å½’çº¦ ==========
+        // ========== µÚÒ»²½£º½Ç¶È¹éÔ¼ ==========
 
         // 1. sin(-x) = -sin(x)
         bool negateResult = false;
@@ -168,98 +167,98 @@ namespace Fern::Math {
             negateResult = true;
         }
 
-        // 2. å‘¨æœŸæ€§ï¼šsin(x + 2Ï€) = sin(x)
+        // 2. ÖÜÆÚĞÔ£ºsin(x + 2¦Ğ) = sin(x)
         while (x >= TAU) {
             x -= TAU;
         }
 
-        // 3. å½’çº¦åˆ° [0, Ï€]
-        // sin(Ï€ + x) = -sin(x)
-        // sin(2Ï€ - x) = -sin(x)
+        // 3. ¹éÔ¼µ½ [0, ¦Ğ]
+        // sin(¦Ğ + x) = -sin(x)
+        // sin(2¦Ğ - x) = -sin(x)
         if (x > PI) {
-            x = TAU - x;      // sin(2Ï€ - x) = -sin(x)
+            x = TAU - x;      // sin(2¦Ğ - x) = -sin(x)
             negateResult = !negateResult;
         }
 
-        // 4. å½’çº¦åˆ° [0, Ï€/2]
-        // sin(Ï€ - x) = sin(x)
+        // 4. ¹éÔ¼µ½ [0, ¦Ğ/2]
+        // sin(¦Ğ - x) = sin(x)
         if (x > PIHALF) {
             x = PI - x;
-            // ç¬¦å·ä¸å˜ï¼ˆsin(Ï€ - x) = sin(x)ï¼‰
+            // ·ûºÅ²»±ä£¨sin(¦Ğ - x) = sin(x)£©
         }
 
-        // ========== ç¬¬äºŒæ­¥ï¼šæ³°å‹’çº§æ•°è®¡ç®— ==========
-        // sin(x) = x - xÂ³/3! + xâµ/5! - xâ·/7! + ...
+        // ========== µÚ¶ş²½£ºÌ©ÀÕ¼¶Êı¼ÆËã ==========
+        // sin(x) = x - x?/3! + x?/5! - x?/7! + ...
 
         double result = 0.0;
-        double term = x;      // n=0 é¡¹
+        double term = x;      // n=0 Ïî
         double x2 = x * x;
         
 
         for (int n = 0; n < terms; n++) {
             if (n == 0) {
-                result = x;   // ç¬¬ä¸€é¡¹
+                result = x;   // µÚÒ»Ïî
             }
             else {
-                // é€’æ¨ï¼šterm_n = term_{n-1} * (-xÂ²) / ((2n) * (2n+1))
+                // µİÍÆ£ºterm_n = term_{n-1} * (-x?) / ((2n) * (2n+1))
                 term *= -x2;
                 term /= (2 * n) * (2 * n + 1);
                 result += term;
             }
         }
 
-        // ========== ç¬¬ä¸‰æ­¥ï¼šåº”ç”¨ç¬¦å· ==========
+        // ========== µÚÈı²½£ºÓ¦ÓÃ·ûºÅ ==========
         return negateResult ? -result : result;
     }
 
     /**
-    * @brief æ­£åˆ‡å‡½æ•°
+    * @brief ÕıÇĞº¯Êı
     * @details
-    * å®ç°ä¾é ä½™å¼¦å’Œæ­£å¼¦å‡½æ•°ã€‚ä½†æ˜¯åˆ°2026/7/22ç³»ç»Ÿæ€§æ•´ç†APIä¸ºæ­¢ï¼Œåªæœ‰åˆ©ç”¨fovè®¡ç®—æŠ•å½±çŸ©é˜µçš„æ—¶å€™ä¼šç”¨åˆ°è¿™ä¸ªå‡½æ•°ã€‚
+    * ÊµÏÖÒÀ¿¿ÓàÏÒºÍÕıÏÒº¯Êı¡£µ«ÊÇµ½2026/7/22ÏµÍ³ĞÔÕûÀíAPIÎªÖ¹£¬Ö»ÓĞÀûÓÃfov¼ÆËãÍ¶Ó°¾ØÕóµÄÊ±ºò»áÓÃµ½Õâ¸öº¯Êı¡£
     * @note
-    * éœ€è¦å¿«é€Ÿæ­£åˆ‡çš„æ—¶å€™ï¼Œå†å®ç°å¿«é€Ÿæ­£åˆ‡ã€‚
-    * @param double x å¼§åº¦åˆ¶è§’åº¦
-    * @param int terms = 6 è¿­ä»£é¡¹æ•°ï¼Œé»˜è®¤6é¡¹ç²¾åº¦å·²ç»è¶³å¤Ÿã€‚
-    * @return double å‚æ•°xçš„æ­£åˆ‡å€¼
+    * ĞèÒª¿ìËÙÕıÇĞµÄÊ±ºò£¬ÔÙÊµÏÖ¿ìËÙÕıÇĞ¡£
+    * @param double x »¡¶ÈÖÆ½Ç¶È
+    * @param int terms = 6 µü´úÏîÊı£¬Ä¬ÈÏ6Ïî¾«¶ÈÒÑ¾­×ã¹»¡£
+    * @return double ²ÎÊıxµÄÕıÇĞÖµ
     */
     inline double Tangent(double x, int terms = 6) {
         return Sine(x, terms) / Cosine(x, terms);
     }
 
     /**
-    * @brief è§’åº¦åˆ¶è§’åº¦è½¬æ¢æˆå¼§åº¦
-    * @param double deg è§’åº¦åˆ¶ä¸‹è§’åº¦
-    * @return double å¼§åº¦åˆ¶ä¸‹è§’åº¦
+    * @brief ½Ç¶ÈÖÆ½Ç¶È×ª»»³É»¡¶È
+    * @param double deg ½Ç¶ÈÖÆÏÂ½Ç¶È
+    * @return double »¡¶ÈÖÆÏÂ½Ç¶È
     */
     inline double DegToRad(double deg) { return deg * PI / 180.0; }
 
     /**
-    * @brief å¼§åº¦åˆ¶è§’åº¦è½¬æ¢æˆè§’åº¦
-    * @param double deg å¼§åº¦åˆ¶ä¸‹è§’åº¦
-    * @return double è§’åº¦åˆ¶ä¸‹è§’åº¦
+    * @brief »¡¶ÈÖÆ½Ç¶È×ª»»³É½Ç¶È
+    * @param double rad »¡¶ÈÖÆÏÂ½Ç¶È
+    * @return double ½Ç¶ÈÖÆÏÂ½Ç¶È
     */
     inline double RadToDeg(double rad) { return rad * 180.0 / PI; }
 
     /**
-    * @brief çº¿æ€§æ’å€¼
-    * @param double start èµ·å§‹å€¼
-    * @param double end ç»“æŸå€¼
-    * @param double t æ’å€¼å‚æ•°ï¼Œé€šå¸¸åœ¨ [0, 1] èŒƒå›´å†…
-    * @return double æ’å€¼ç»“æœ
+    * @brief ÏßĞÔ²åÖµ
+    * @param double start ÆğÊ¼Öµ
+    * @param double end ½áÊøÖµ
+    * @param double t ²åÖµ²ÎÊı£¬Í¨³£ÔÚ [0, 1] ·¶Î§ÄÚ
+    * @return double ²åÖµ½á¹û
     */
 	inline double LiniarInterpolation(double start, double end, double t) {
 		return start + (end - start) * t;
 	}
 
     /**
-    * @brief è§£çº¿æ€§æ’å€¼
-    * @param double start èµ·å§‹å€¼
-    * @param double end ç»“æŸå€¼
-    * @param double value ç›®æ ‡å€¼
-    * @return double æ’å€¼å‚æ•°
+    * @brief ½âÏßĞÔ²åÖµ
+    * @param double start ÆğÊ¼Öµ
+    * @param double end ½áÊøÖµ
+    * @param double value Ä¿±êÖµ
+    * @return double ²åÖµ²ÎÊı
     */
 	inline double SolveLiniarInterpolation(double start, double end, double value) {
-		if (end - start == 0) return start; // é¿å…é™¤ä»¥é›¶
+		if (end - start == 0) return start; // ±ÜÃâ³ıÒÔÁã
 		return (value - start) / (end - start);
 	}
 }
