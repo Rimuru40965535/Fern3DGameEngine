@@ -59,6 +59,7 @@ namespace Fern {
 					result.values[row][col] = this->values[row][col] - A.values[row][col];
 				}
 			}
+			return result;
 		}
 
 		Matrix4x4 operator+(const Matrix4x4& A)const {
@@ -68,6 +69,7 @@ namespace Fern {
 					result.values[row][col] = this->values[row][col] + A.values[row][col];
 				}
 			}
+			return result;
 		}
 
 		Matrix4x4 operator+=(const Matrix4x4& A) {
@@ -76,6 +78,7 @@ namespace Fern {
 					this->values[row][col] += A.values[row][col];
 				}
 			}
+			return *this;
 		}
 
 		Matrix4x4 operator-=(const Matrix4x4& A) {
